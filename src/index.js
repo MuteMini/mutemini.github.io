@@ -1,15 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { ChakraProvider } from "@chakra-ui/react"
+import { hydrate, render } from 'react-dom';
 import './index.css';
-import Home from './home/home';
+import App from './App';
 
-ReactDOM.render(  
-  <React.StrictMode>
-    <ChakraProvider>
-      <Home />
-    </ChakraProvider>
-  </React.StrictMode>
-  ,
-  document.getElementById('root')
+const rootElement = document.getElementById('root');
+
+const StrictApp = () => (
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>
 );
+
+if (rootElement.hasChildNodes()) {
+    console.log('App: Hydrate');
+    hydrate(<StrictApp />, rootElement);
+} else {
+    console.log('App: Render');
+    render(<StrictApp />, rootElement);
+}

@@ -1,8 +1,11 @@
 import { Center, Text } from "@chakra-ui/react"
 
-function Home() {
+function Index() {
     return (
-        <Center h="200px">
+        <Center 
+            background="palette.600"
+            minH="100vh" 
+            h="100vh" >
             <Text size="5xl">
                 brurhubruhruhb
             </Text>
@@ -10,4 +13,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Index;
