@@ -2,7 +2,11 @@ import React, { Suspense, lazy } from 'react';
 import { ChakraProvider, extendTheme, Center, Spinner } from "@chakra-ui/react"
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-const Index = lazy(() => import('./pages/Index'));
+const Index = lazy(() => {
+    return new Promise(resolve => {
+        setTimeout(() => resolve(import('./pages/Index')), 300);
+    });
+});
 
 const theme = extendTheme({
     colors: {
@@ -15,20 +19,32 @@ const theme = extendTheme({
             900: "#6B705C",
         }
     },
+    fonts: {
+        heading: "Balsamiq Sans",
+        body: "Poppins",
+    },
+    styles: {
+        global: {
+            ".titlespacer": {
+            fill: "palette.500",
+            stroke: "palette.500",
+            }
+        }
+    }
 })
 
 const { PUBLIC_URL } = process.env;
 
 const Loading = () => (
     <Center
-        background="palette.600"
+        background="palette.500"
         minH="100vh" 
         h="100vh" 
     >
         <Spinner
             thickness="4px"
-            emptyColor="gray.200"
-            color="blue.500"
+            emptyColor="palette.500"
+            color="palette.800"
             size="xl"
         />
     </Center>
