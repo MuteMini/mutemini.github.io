@@ -22,14 +22,6 @@ const theme = extendTheme({
     fonts: {
         heading: "Balsamiq Sans",
         body: "Poppins",
-    },
-    styles: {
-        global: {
-            ".titlespacer": {
-            fill: "palette.500",
-            stroke: "palette.500",
-            }
-        }
     }
 })
 
