@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 const Index = lazy(() => {
     return new Promise(resolve => {
-        setTimeout(() => resolve(import('./pages/Index')), 300);
+        setTimeout(() => resolve(import('./pages/Index')));
     });
 });
 
@@ -22,6 +22,11 @@ const theme = extendTheme({
     fonts: {
         heading: "Balsamiq Sans",
         body: "Poppins",
+    },
+    global: {
+        "html, body": {
+            color: "palette.600",
+        },
     }
 })
 
@@ -29,7 +34,7 @@ const { PUBLIC_URL } = process.env;
 
 const Loading = () => (
     <Center
-        background="palette.500"
+        background="palette.600"
         minH="100vh" 
         h="100vh" 
     >
