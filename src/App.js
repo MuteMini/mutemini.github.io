@@ -7,6 +7,12 @@ const Index = lazy(() => {
         setTimeout(() => resolve(import('./pages/Index')));
     });
 });
+const About = lazy(() => {
+    return new Promise(resolve => {
+        setTimeout(() => resolve(import('./pages/About')));
+    });
+});
+
 
 const theme = extendTheme({
     colors: {
@@ -22,6 +28,7 @@ const theme = extendTheme({
     fonts: {
         heading: "Balsamiq Sans",
         body: "Poppins",
+        link: "Poppins",
     },
     global: {
         "html, body": {
@@ -54,6 +61,7 @@ function App() {
                 <Suspense fallback={<Loading />}>
                     <Switch>
                         <Route path="/" exact component={Index} />
+                        <Route path="/about" component={About} />
                     </Switch>
                 </Suspense>
             </BrowserRouter>
