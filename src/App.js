@@ -13,7 +13,6 @@ const About = lazy(() => {
     });
 });
 
-
 const theme = extendTheme({
     colors: {
         palette: {
