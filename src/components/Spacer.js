@@ -5,19 +5,19 @@ import { motion } from "framer-motion"
 const StyledSvg = styled.svg`
    fill: var(--chakra-colors-palette-500);
    fill-opacity: 0;
-   stroke: var(--chakra-colors-palette-500);
+   stroke: var(--chakra-colors-palette-400);
    stroke-dasharray: 0%;
    stroke-dashoffset: 100%;
 `;
 
-const Spacer = (props) => (
+const Spacer = ({ controls }) => (
    <StyledSvg width="9in" height="auto"
       viewBox="0 0 720 120">
       <motion.path id="Selection"
          strokeWidth="3"
          strokeLinecap="round"
          initial={{ pathLength: 0, fillOpacity: 0 }}
-         animate={props.controls}
+         animate={controls}
          d="M 31.00,10.47
             C 35.30,9.88 40.17,9.34 40.84,15.02
                41.01,16.53 40.78,18.45 39.98,19.78
