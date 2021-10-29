@@ -8,12 +8,12 @@ function CustomLink(props) {
             as={RouterLink}
             textDecoration="none"
             color="palette.800" 
-            style={{webkitTextStroke:"1.5px var(--chakra-colors-palette-900)"}}
-            textShadow="2px 2px 3px var(--chakra-colors-palette-700)"
+            style={{webkitTextStroke: "1.5px var(--chakra-colors-palette-900)"}}
             _hover={{
-                color:"palette.800"
+                textShadow: "4px 4px 3px lightgray",
+                transform: "scale(1.1)"
             }}
-            transition="color 0.3s ease"
+            transition="text-shadow 0.5s linear, transform 0.4s ease"
             fontSize="2xl">
             {props.children}
         </Link>

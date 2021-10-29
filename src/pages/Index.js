@@ -32,7 +32,7 @@ function Index() {
         await Promise.all([
             titleControls.start({ 
                 opacity: 1,
-                translateY: 0,
+                y: 0,
                 transition: { duration: 1 },
             }),
             spacerControls.start({ 
@@ -47,7 +47,7 @@ function Index() {
             }),
             subtitleControls.start({ 
                 opacity: 1,
-                translateY: 0,
+                y: 0,
                 transition: { type: "spring", stiffness: 70 }
             })
         ]);
@@ -58,7 +58,7 @@ function Index() {
             }),
             navbarControls.start({
                 opacity: 1,
-                translateY: 0,
+                y: 0,
                 transition: { type: "spring", stiffness: 40 }
             }),
             bgControls.start({
@@ -78,31 +78,31 @@ function Index() {
             minH="100vh" 
             h="100vh">
             <motion.div initial={{ opacity: 0 }} animate={bgControls}
-                style={{ position:"absolute", top: 0, left:0, width:"100%", height:"100vh", minHeight:"100vh" }} >
+                style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100vh", minHeight: "100vh" }} >
                 <Background />
             </motion.div>
             <motion.div 
-                style={{ pointerEvents:"none" }}
+                style={{ pointerEvents: "none" }}
                 initial={{ y: "3vh" }}
                 animate={totalControls}>
                 <VStack>
                     <VStack spacing="-10">
-                        <motion.div initial={{ opacity: 0, translateY: "-50%" }} animate={titleControls} >
+                        <motion.div initial={{ opacity: 0, y: "-50%" }} animate={titleControls} >
                             <Heading margin="6" 
                                 color="palette.800" 
-                                style={{webkitTextStroke:"3px var(--chakra-colors-palette-900)"}}
+                                style={{webkitTextStroke: "3px var(--chakra-colors-palette-900)"}}
                                 textShadow="1px 1px 3px var(--chakra-colors-palette-700)" 
                                 size="4xl"> Hello! My name is Min! </Heading>
                         </motion.div>
                         <Spacer controls={spacerControls} />  
-                        <motion.div initial={{ opacity: 0, translateY: "50%" }} animate={subtitleControls} >
+                        <motion.div initial={{ opacity: 0, y: "50%" }} animate={subtitleControls} >
                             <Text color="palette.800" 
-                                style={{webkitTextStroke:"2px var(--chakra-colors-palette-900)"}}
+                                style={{webkitTextStroke: "2px var(--chakra-colors-palette-900)"}}
                                 textShadow="2px 2px 3px var(--chakra-colors-palette-700)" 
                                 fontSize="4xl"> Welcome to my portfolio. </Text>
                         </motion.div>
                     </VStack>
-                    <motion.div style={{pointerEvents:"auto"}} initial={{ opacity: 0, translateY: "30%" }} animate={navbarControls}>
+                    <motion.div style={{pointerEvents: "auto"}} initial={{ opacity: 0, y: "30%" }} animate={navbarControls}>
                         <Navbar />
                     </motion.div>
                 </VStack>
