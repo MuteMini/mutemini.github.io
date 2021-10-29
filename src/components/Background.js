@@ -17,7 +17,7 @@ function Particles({ pointCount }) {
   const mesh = useRef();
   const camera = useRef();
   const { vec, transform, positions, colors } = useMemo(() => {
-    const COLOR_TYPES = ["#fbf5c5","#f7efb3","#e1d98b","#bfbd66","#859547","#627232","#4e5d26","#475422"];
+    const COLOR_TYPES = ["708C43","6E823E","6C7738","6A6D33","68622E","665828","644D23"];
     
     const vec = new THREE.Vector3()
     const transform = new THREE.Matrix4()
@@ -33,7 +33,7 @@ function Particles({ pointCount }) {
     })
 
     const colors = [...Array(pointCount)].map(() => {
-      return new THREE.Color(COLOR_TYPES[Math.floor(Math.random()*COLOR_TYPES.length)])
+      return new THREE.Color("#"+COLOR_TYPES[Math.floor(Math.random()*COLOR_TYPES.length)])
     })
 
     return { vec, transform, positions, colors }
@@ -62,7 +62,7 @@ function Particles({ pointCount }) {
     <instancedMesh ref={mesh} args={[null, null, pointCount]}>
       <PerspectiveCamera makeDefault ref={camera} position={[0, -50, 110]} rotation={[0, 0, deg2rad(55)]} />
       <sphereBufferGeometry args={[0.15]} />
-      <meshBasicMaterial />
+      <meshToonMaterial />
     </instancedMesh>
   );
 }
@@ -70,11 +70,12 @@ function Particles({ pointCount }) {
 function Background() {
   return (
     <Canvas onCreated={state => {
-        state.gl = new THREE.WebGLRenderer( { alpha: true } );
-        state.gl.setClearColor(0xffffff, 0)
-        }} 
+        state.gl.setClearColor( new THREE.Color(0xEAB48A) );
+        state.gl.setClearAlpha( 0.2 )
+        }}
         colorManagement>
-        <ambientLight intensity={0.3} />
+        <pointLight intensity={0.6} position={[70,-70,-70]} />
+        <pointLight intensity={0.6} position={[-70,70,70]} />
         <Particles pointCount={15000}/> 
     </Canvas>
   );
