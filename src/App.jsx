@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react';
-import { ChakraProvider, extendTheme, Center, Spinner } from "@chakra-ui/react"
+import { ChakraProvider, Center, Spinner } from "@chakra-ui/react"
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { theme } from './theme'
 
 const Index = lazy(() => {
     return new Promise(resolve => {
@@ -9,32 +10,9 @@ const Index = lazy(() => {
 });
 const About = lazy(() => {
     return new Promise(resolve => {
-        setTimeout(() => resolve(import('./pages/About')));
+        setTimeout(() => resolve(import('./pages/about/About')));
     });
 });
-
-const theme = extendTheme({
-    colors: {
-        palette: {
-            400: "#CB997E",
-            500: "#DDBEA9",
-            600: "#FFE8D6",
-            700: "#B7B7A4",
-            800: "#A5A58D",
-            900: "#6B705C",
-        }
-    },
-    fonts: {
-        heading: "Balsamiq Sans",
-        body: "Poppins",
-        link: "Poppins",
-    },
-    global: {
-        "html, body": {
-            color: "palette.600",
-        },
-    }
-})
 
 const { PUBLIC_URL } = process.env;
 

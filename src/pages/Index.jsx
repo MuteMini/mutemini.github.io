@@ -89,21 +89,17 @@ function Index() {
                     <VStack spacing="-10">
                         <motion.div initial={{ opacity: 0, y: "-50%" }} animate={titleControls} >
                             <Heading margin="6" 
-                                color="palette.800" 
-                                style={{webkitTextStroke: "3px var(--chakra-colors-palette-900)"}}
                                 textShadow="1px 1px 3px var(--chakra-colors-palette-700)" 
                                 size="4xl"> Hello! My name is Min! </Heading>
                         </motion.div>
                         <Spacer controls={spacerControls} />  
                         <motion.div initial={{ opacity: 0, y: "50%" }} animate={subtitleControls} >
-                            <Text color="palette.800" 
-                                style={{webkitTextStroke: "2px var(--chakra-colors-palette-900)"}}
-                                textShadow="2px 2px 3px var(--chakra-colors-palette-700)" 
+                            <Text textShadow="2px 2px 3px var(--chakra-colors-palette-700)" 
                                 fontSize="4xl"> Welcome to my portfolio. </Text>
                         </motion.div>
                     </VStack>
                     <motion.div style={{pointerEvents: "auto"}} initial={{ opacity: 0, y: "30%" }} animate={navbarControls}>
-                        <Navbar />
+                        <Navbar mainpage={false}/>
                     </motion.div>
                 </VStack>
             </motion.div>
