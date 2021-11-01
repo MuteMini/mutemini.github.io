@@ -3,16 +3,8 @@ import { ChakraProvider, Center, Spinner } from "@chakra-ui/react"
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { theme } from './theme'
 
-const Index = lazy(() => {
-    return new Promise(resolve => {
-        setTimeout(() => resolve(import('./pages/Index')));
-    });
-});
-const About = lazy(() => {
-    return new Promise(resolve => {
-        setTimeout(() => resolve(import('./pages/about/About')));
-    });
-});
+const Index = lazy(() => import('./pages/Index'));
+const About = lazy(() => import('./pages/about/About'));
 
 const { PUBLIC_URL } = process.env;
 
