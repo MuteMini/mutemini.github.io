@@ -8,10 +8,13 @@ const StyledSvg = styled.svg`
    stroke: var(--chakra-colors-palette-400);
    stroke-dasharray: 0%;
    stroke-dashoffset: 100%;
+   margin-bottom: -20px;
+   width: inherit;
+   height: auto;
 `;
 
-const Spacer = ({ controls }) => (
-   <StyledSvg width="9in" height="auto"
+const Spacer = ({ width, controls }) => (
+   <StyledSvg
       viewBox="0 0 720 120">
       <motion.path id="Selection"
          strokeWidth="3"
