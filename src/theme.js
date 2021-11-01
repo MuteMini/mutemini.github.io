@@ -10,8 +10,12 @@ export const theme = extendTheme({
             },
             variants: {
                 "light": {
-                    color: "palette.500",
+                    color: "palette.600",
                     "-webkit-text-stroke": "3px var(--chakra-colors-palette-400)",
+                },
+                "light-sm": {
+                    color: "palette.600",
+                    "-webkit-text-stroke": "2px var(--chakra-colors-palette-400)",
                 },
             }
         },
@@ -20,6 +24,11 @@ export const theme = extendTheme({
                 fontFamily: "Poppins",
                 "-webkit-text-stroke": "2px var(--chakra-colors-palette-900)",
                 color: "palette.800" 
+            },
+            variants: {
+                "sm": {
+                    "-webkit-text-stroke": "1.5px var(--chakra-colors-palette-900)",
+                },
             }
         },
         Link: {
