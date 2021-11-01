@@ -2,8 +2,11 @@ import {
     Center,
     VStack, 
     Text, 
-    Heading } from "@chakra-ui/react"
+    Heading,
+    Container,
+    Box } from "@chakra-ui/react"
 import { useEffect, lazy } from "react"
+import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion"
 import "@fontsource/balsamiq-sans/400-italic.css"
 import "@fontsource/poppins/400.css"
@@ -21,84 +24,101 @@ const Background = lazy(() => {
 });
 
 function Index() {
-    const totalControls = useAnimation();
-    const titleControls = useAnimation();
-    const spacerControls = useAnimation();
-    const subtitleControls = useAnimation();
-    const navbarControls = useAnimation();
-    const bgControls = useAnimation();
+    const controlArray = {
+        "total": useAnimation(),
+        "title": useAnimation(),
+        "spacer": useAnimation(),
+        "subtitle": useAnimation(),
+        "navbar": useAnimation(),
+        "bg": useAnimation()
+    };
 
-    async function sequence() {
-        await Promise.all([
-            titleControls.start({ 
-                opacity: 1,
-                y: 0,
-                transition: { duration: 1 },
-            }),
-            spacerControls.start({ 
-                pathLength: 1,
-                transition: { duration: 4, ease: "easeInOut" },
-            })
-        ]);
-        await Promise.all([
-            spacerControls.start({ 
-                fillOpacity: 1,
-                transition: { duration: 2, ease: "easeOut" }
-            }),
-            subtitleControls.start({ 
-                opacity: 1,
-                y: 0,
-                transition: { type: "spring", stiffness: 70 }
-            })
-        ]);
-        return await Promise.all([
-            totalControls.start({ 
-                y: 0,
-                transition: { duration: 1, ease: "easeInOut" }
-            }),
-            navbarControls.start({
-                opacity: 1,
-                y: 0,
-                transition: { type: "spring", stiffness: 40 }
-            }),
-            bgControls.start({
-                opacity: 1,
-                transition: { duration: 5, ease: "easeInOut" }
-            })
-        ]);
-    }
+    const [ref, inView] = useInView();
 
     useEffect(() => {
-        sequence();
+        if( inView ) {
+            sequence();
+        }
+
+        async function sequence() {
+            await Promise.all([
+                controlArray["title"].start({ 
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 1 },
+                }),
+                controlArray["spacer"].start({ 
+                    pathLength: 1,
+                    transition: { duration: 4, ease: "easeInOut" },
+                })
+            ]);
+            await Promise.all([
+                controlArray["spacer"].start({ 
+                    fillOpacity: 1,
+                    transition: { duration: 2, ease: "easeOut" }
+                }),
+                controlArray["subtitle"].start({ 
+                    opacity: 1,
+                    y: 0,
+                    transition: { type: "spring", stiffness: 70 }
+                })
+            ]);
+            return await Promise.all([
+                controlArray["total"].start({ 
+                    y: 0,
+                    transition: { duration: 1, ease: "easeInOut" }
+                }),
+                controlArray["navbar"].start({
+                    opacity: 1,
+                    y: 0,
+                    transition: { type: "spring", stiffness: 40 }
+                }),
+                controlArray["bg"].start({
+                    opacity: 1,
+                    transition: { duration: 5, ease: "easeInOut" }
+                })
+            ]);
+        }
     });
 
     return (
         <Center 
+            ref={ref}
             bg="palette.600"
             minH="100vh" 
             h="100vh">
-            <motion.div initial={{ opacity: 0 }} animate={bgControls}
-                style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100vh", minHeight: "100vh" }} >
-                <Background />
+            <motion.div initial={{ opacity: 0 }} animate={controlArray["bg"]} >
+                <Box position="absolute" top={0} left={0} width="100%" height="100vh" minHeight="500px">
+                    <Background />
+                </Box>
             </motion.div>
             <motion.div 
                 style={{ pointerEvents: "none" }}
                 initial={{ y: "3vh" }}
-                animate={totalControls}>
+                animate={controlArray["total"]}>
                 <VStack>
-                    <VStack spacing="-10">
-                        <motion.div initial={{ opacity: 0, y: "-50%" }} animate={titleControls} >
-                            <Heading margin="6" 
+                    <VStack spacing={2}>
+                        <motion.div initial={{ opacity: 0, y: "-50%" }} animate={controlArray["title"]} >
+                            <Heading textAlign="center"
                                 textShadow="1px 1px 3px var(--chakra-colors-palette-700)" 
-                                size="4xl"> Hello! My name is Min! </Heading>
+                                fontSize={{base: "4xl", md: "5xl", lg: "6xl"}}> 
+                                Hello! My name is Min! 
+                            </Heading>
                         </motion.div>
-                        <Spacer controls={spacerControls} />  
-                        <motion.div initial={{ opacity: 0, y: "50%" }} animate={subtitleControls} >
-                            <Text textShadow="2px 2px 3px var(--chakra-colors-palette-700)" 
-                                fontSize="4xl"> Welcome to my portfolio. </Text>
+                        <Box width={{base: "450px", md: "600px", lg: "700px"}}>
+                            <Spacer controls={controlArray["spacer"]} />  
+                        </Box>
+                        <motion.div initial={{ opacity: 0, y: "50%" }} animate={controlArray["subtitle"]} >
+                            <Container maxW="lg" centerContent>
+                                <Text textShadow="2px 2px 3px var(--chakra-colors-palette-700)" 
+                                    textAlign="center"
+                                    fontSize={{base: "3xl", md: "4xl"}}> 
+                                    Welcome to my portfolio. 
+                                </Text>
+                            </Container>
                         </motion.div>
                     </VStack>
-                    <motion.div style={{pointerEvents: "auto"}} initial={{ opacity: 0, y: "30%" }} animate={navbarControls}>
+                    <motion.div style={{pointerEvents: "auto"}} initial={{ opacity: 0, y: "30%" }} animate={controlArray["navbar"]}>
                         <Navbar mainpage={false}/>
                     </motion.div>
                 </VStack>
