@@ -6,7 +6,13 @@ export const theme = extendTheme({
             baseStyle: {
                 fontFamily: "Balsamiq Sans",
                 "-webkit-text-stroke": "3px var(--chakra-colors-palette-900)",
-                color: "palette.800" 
+                color: "palette.800",
+            },
+            variants: {
+                "light": {
+                    color: "palette.500",
+                    "-webkit-text-stroke": "3px var(--chakra-colors-palette-400)",
+                },
             }
         },
         Text: {
