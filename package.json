@@ -23,7 +23,6 @@
     "react-scripts": "4.0.3",
     "react-snap": "^1.23.0",
     "react-three-fiber": "^6.0.13",
-    "styled-components": "^5.3.3",
     "three": "^0.133.1",
     "web-vitals": "^1.0.1"
   },
