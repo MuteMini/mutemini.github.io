@@ -7,7 +7,7 @@ function CustomLink(props) {
             to={props.link}
             as={RouterLink}
             pos="inherit"
-            style={{webkitTextStroke: "1.5px var(--chakra-colors-palette-900)"}}
+            style={{webkitTextStroke: "1.5px var(--chakra-colors-palette-900)", whiteSpace: "nowrap"}}
             _hover={{
                 textShadow: "4px 4px 3px lightgray",
                 transform: "scale(1.1)"
@@ -21,7 +21,7 @@ function CustomLink(props) {
 
 function NavBar({ mainpage }) {
     const PreNavBar = (props) => (
-        <HStack pos="sticky" borderSize={1} padding={2} spacing={7}>
+        <HStack as="nav" pos="sticky" borderSize={1} padding={2} spacing={7}>
             {props.children}
             <CustomLink link="/about"> About Me </CustomLink>
             <CustomLink link="/project"> Projects </CustomLink>
