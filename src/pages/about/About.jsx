@@ -89,12 +89,13 @@ function About() {
 
     return(
         <>
-            <Center flex="0 0" position="sticky" zIndex={1} top={0} w="100%" bg="palette.700">
+            <Center position="sticky" zIndex={1} top={0} w="100%" bg="palette.700">
                 <Navbar mainpage/>
             </Center>
             <Center h="100vh" w="100%" 
                 backgroundImage={bgImage} 
                 backgroundSize="cover"
+                backgroundAttachment="fixed"
                 backgroundPosition="center right">
                 <Container maxW="50rem">
                     <FadeInView duration={2}>
