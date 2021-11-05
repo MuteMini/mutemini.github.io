@@ -11,30 +11,9 @@ import "@fontsource/balsamiq-sans/400-italic.css"
 import "@fontsource/poppins/400.css"
 
 import bgImage from './aboutBg.jpg';
+import { imgCache } from '../../utils'
 const Navbar = lazy(() => import('../../components/Navbar'));
-
-const imgCache = {
-    __cache: {},
-    read(src) {
-        if (!this.__cache[src]) {
-            this.__cache[src] = new Promise((resolve) => {
-                const img = new Image();
-                img.onload = () => {
-                    this.__cache[src] = true;
-                    resolve(this.__cache[src]);
-                };
-                img.src = src;
-            }).then((img) => {
-                this.__cache[src] = true;
-            });
-        }
-
-        if (this.__cache[src] instanceof Promise) {
-            throw this.__cache[src];
-        }
-        return this.__cache[src];
-    }
-};
+const Carousel = lazy(() => import('../../components/carousel/Carousel'))
 
 function FadeInView({ children, duration, distance }) {
     const control = useAnimation();
@@ -137,6 +116,7 @@ function About() {
                         Min also loves to take photos. Here are some he took
                         that he is proud of.
                     </InnerText>
+                    <Carousel />
                 </FadeInView>
                 <FadeInView duration={1} distance="30px">
                     <InnerText>
