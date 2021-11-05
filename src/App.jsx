@@ -5,6 +5,7 @@ import { theme } from './theme'
 
 const Index = lazy(() => import('./pages/Index'));
 const About = lazy(() => import('./pages/about/About'));
+const Project = lazy(() => import('./pages/project/Project'));
 
 const { PUBLIC_URL } = process.env;
 
@@ -31,6 +32,7 @@ function App() {
                     <Switch>
                         <Route path="/" exact component={Index} />
                         <Route path="/about" component={About} />
+                        <Route path="/project" component={Project} />
                     </Switch>
                 </Suspense>
             </BrowserRouter>
