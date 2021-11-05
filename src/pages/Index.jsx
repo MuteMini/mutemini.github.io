@@ -105,7 +105,7 @@ function Index() {
                                 Hello! My name is Min! 
                             </Heading>
                         </motion.div>
-                        <Box width={{base: "450px", md: "600px", lg: "700px"}}>
+                        <Box width={{base: "450px", md: "600px", lg: "800px"}}>
                             <Spacer controls={controlArray["spacer"]} />  
                         </Box>
                         <motion.div initial={{ opacity: 0, y: "50%" }} animate={controlArray["subtitle"]} >
