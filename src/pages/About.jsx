@@ -10,10 +10,11 @@ import { motion, useAnimation } from "framer-motion";
 import "@fontsource/balsamiq-sans/400-italic.css"
 import "@fontsource/poppins/400.css"
 
-import bgImage from './aboutBg.jpg';
-import { imgCache } from '../../utils'
+import bgImage from '../../assets/aboutBg.jpg';
 const Navbar = lazy(() => import('../../components/Navbar'));
-const Carousel = lazy(() => import('../../components/carousel/Carousel'))
+const Carousel = lazy(() => import('../../components/Carousel'))
+
+const MotionBox = motion(Box);
 
 function FadeInView({ children, duration, distance }) {
     const control = useAnimation();
@@ -44,7 +45,36 @@ FadeInView.defaultProps = {
     distance: "100px"
 };
 
-function InnerText({ children, maxW, ...rest }){
+function Divider() {
+    const control = useAnimation();
+    const [ref, inView] = useInView();
+
+    useEffect(() => {
+        if (inView) {
+            control.start("visible");
+        }
+    }, [control, inView]);
+
+    return (
+        <Center>
+            <MotionBox
+            zIndex={0}
+            borderRadius="2px"
+            border="2px solid"
+            borderColor="palette.500"
+            ref={ref}
+            animate={control}
+            initial={"hidden"}
+            transition={{ duration: 2, ease: "easeOut" }}
+            variants={{
+                visible: { width: "50%" },
+                hidden: { width: "0%" }
+            }} />
+        </Center> 
+    );
+}
+
+function InnerText({ children, maxW, ...rest }) {
     return (
         <Container maxW={maxW} {...rest}>
             <Text textAlign="center" h="inherit" fontSize="3xl" variant="sm">
@@ -57,15 +87,7 @@ InnerText.defaultProps = {
     maxW: "60rem"
 }
 
-const Divider = () => (
-    <Center>
-        <Box w="50%" borderRadius="2px" border="2px solid" borderColor="palette.500"/>
-    </Center> 
-)
-
 function About() {
-    imgCache.read(bgImage);
-
     return(
         <>
             <Center position="sticky" zIndex={1} top={0} w="100%" bg="palette.700">
@@ -75,7 +97,8 @@ function About() {
                 backgroundImage={bgImage} 
                 backgroundSize="cover"
                 backgroundAttachment="fixed"
-                backgroundPosition="center right">
+                backgroundPosition="center right"
+            >
                 <Container maxW="50rem">
                     <FadeInView duration={2}>
                         <Heading textAlign="center" fontSize="6xl" variant="light">
@@ -88,11 +111,12 @@ function About() {
                 </Container>
             </Center>
             <VStack h="100%" 
-                maxH="1400px" 
+                maxH="3000px" 
                 overflow="hidden" 
                 justifyContent="start"
                 margin={6}
-                spacing="100px">
+                spacing="100px"
+            >
                 <FadeInView duration={1} distance="30px">
                     <InnerText marginTop="20px">
                         Min is a grade 12 student currently attending 
@@ -122,6 +146,9 @@ function About() {
                     <InnerText>
                         <Text fontSize="5xl"> Skillz </Text>
                         <Divider />
+                        Lorem ipsum dolor sit amet, consectetur adipiscing 
+                        elit, sed do eiusmod tempor incididunt ut labore et 
+                        dolore magna aliqua.
                     </InnerText>
                 </FadeInView>
             </VStack>
