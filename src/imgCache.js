@@ -20,6 +20,7 @@ const imgCache = {
         }
 
         if (this.__cache[src] instanceof Promise) {
+            console.log(src+" loading");
             throw this.__cache[src];
         }
         console.log(src+" completed loading");

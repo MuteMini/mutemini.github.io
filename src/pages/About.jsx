@@ -88,7 +88,7 @@ InnerText.defaultProps = {
 }
 
 function About() {
-    imgCache.read('/img/aboutBg.jpg');
+    imgCache.read(process.env.PUBLIC_URL+'/img/aboutBg.jpg');
 
     return(
         <>
@@ -96,7 +96,7 @@ function About() {
                 <Navbar mainpage/>
             </Center>
             <Center h="100vh" w="100%" 
-                backgroundImage={"/img/aboutBg.jpg"} 
+                backgroundImage={process.env.PUBLIC_URL+"/img/aboutBg.jpg"} 
                 backgroundSize="cover"
                 backgroundAttachment="fixed"
                 backgroundPosition="center right"

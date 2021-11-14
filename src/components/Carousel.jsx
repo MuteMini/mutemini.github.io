@@ -52,7 +52,7 @@ function Carousel(){
         ml: `-${currentSlide * 100}%`,
     };
 
-    slides.forEach((slide) => imgCache.read(slide.img));
+    slides.forEach((slide) => imgCache.read(process.env.PUBLIC_URL+slide.img));
 
     return (
         <Flex
@@ -72,7 +72,7 @@ function Carousel(){
                 <Flex h="calc(100% / (4/3))" w="full" {...carouselStyle}>
                     {slides.map((slide, sid) => (
                     <Box key={`slide-${sid}`} boxSize="full" shadow="md" flex="none">
-                        <Image src={slide.img} boxSize="full" backgroundSize="cover" />
+                        <Image src={process.env.PUBLIC_URL+slide.img} boxSize="full" backgroundSize="cover" />
                     </Box>
                 ))}
                 </Flex>
