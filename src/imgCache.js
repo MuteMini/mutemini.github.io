@@ -1,5 +1,3 @@
-import { Image } from "@chakra-ui/react"
-
 const imgCache = {
     __cache: {},
     read(src) {
@@ -15,7 +13,6 @@ const imgCache = {
                     resolve(this.__cache[src]);
                 };
                 img.src = src;
-                setTimeout(() => resolve({}), 7000);
             }).then((img) => {
                 this.__cache[src] = true;
             });
@@ -24,13 +21,9 @@ const imgCache = {
         if (this.__cache[src] instanceof Promise) {
             throw this.__cache[src];
         }
+        console.log(src+" completed loading");
         return this.__cache[src];
-    }
+    },
 };
 
-export const SuspenseImage = ({ src, ...rest }) => {
-    //imgCache.read(src);
-    return (
-        <Image alt="" src={src} {...rest} />
-    );
-}
+export default imgCache;

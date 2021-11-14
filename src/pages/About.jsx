@@ -9,6 +9,7 @@ import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
 import "@fontsource/balsamiq-sans/400-italic.css"
 import "@fontsource/poppins/400.css"
+import imgCache from '../imgCache'
 
 const Navbar = lazy(() => import('../components/Navbar'));
 const Carousel = lazy(() => import('../components/Carousel'))
@@ -87,6 +88,8 @@ InnerText.defaultProps = {
 }
 
 function About() {
+    imgCache.read('/img/aboutBg.jpg');
+
     return(
         <>
             <Center position="sticky" zIndex={1} top={0} w="100%" bg="palette.700">

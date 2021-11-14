@@ -1,8 +1,9 @@
 import { Flex, 
     Box, 
-    Text } from "@chakra-ui/react"
+    Text,
+    Image } from "@chakra-ui/react"
 import { useState } from 'react'
-import { SuspenseImage } from './SuspenseImage'
+import imgCache from '../imgCache'
 
 function Carousel(){
     const arrowStyles = {
@@ -25,15 +26,15 @@ function Carousel(){
     };
 
     const slides = [
-        { img: 'carousel1.jpg', },
-        { img: 'carousel2.jpg', },
-        { img: 'carousel3.jpg', },
-        { img: 'carousel4.jpg', },
-        { img: 'carousel5.jpg', },
-        { img: 'carousel6.jpg', },
-        { img: 'carousel7.jpg', },
-        { img: 'carousel8.jpg', },
-        { img: 'carousel9.jpg', }
+        { img: '/img/carousel1.jpg', },
+        { img: '/img/carousel2.jpg', },
+        { img: '/img/carousel3.jpg', },
+        { img: '/img/carousel4.jpg', },
+        { img: '/img/carousel5.jpg', },
+        { img: '/img/carousel6.jpg', },
+        { img: '/img/carousel7.jpg', },
+        { img: '/img/carousel8.jpg', },
+        { img: '/img/carousel9.jpg', }
     ];
 
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -50,6 +51,8 @@ function Carousel(){
         transition: "all .5s",
         ml: `-${currentSlide * 100}%`,
     };
+
+    slides.forEach((slide) => imgCache.read(slide.img));
 
     return (
         <Flex
@@ -69,7 +72,7 @@ function Carousel(){
                 <Flex h="calc(100% / (4/3))" w="full" {...carouselStyle}>
                     {slides.map((slide, sid) => (
                     <Box key={`slide-${sid}`} boxSize="full" shadow="md" flex="none">
-                        <SuspenseImage src={process.env.PUBLIC_URL+"/img/"+slide.img} boxSize="full" backgroundSize="cover" />
+                        <Image src={slide.img} boxSize="full" backgroundSize="cover" />
                     </Box>
                 ))}
                 </Flex>
