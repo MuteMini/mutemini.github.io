@@ -1,9 +1,8 @@
 import { Flex, 
     Box, 
-    Text,
-    Image } from "@chakra-ui/react"
-import { useState, useEffect } from 'react'
-import { imgCache } from '../utils.js'
+    Text } from "@chakra-ui/react"
+import { useState } from 'react'
+import { SuspenseImage } from './SuspenseImage'
 
 function Carousel(){
     const arrowStyles = {
@@ -26,15 +25,15 @@ function Carousel(){
     };
 
     const slides = [
-        { img: "carousel1.jpg", },
-        { img: "carousel2.jpg", },
-        { img: "carousel3.jpg", },
-        { img: "carousel4.jpg", },
-        { img: "carousel5.jpg", },
-        { img: "carousel6.jpg", },
-        { img: "carousel7.jpg", },
-        { img: "carousel8.jpg", },
-        { img: "carousel9.jpg", }
+        { img: 'carousel1.jpg', },
+        { img: 'carousel2.jpg', },
+        { img: 'carousel3.jpg', },
+        { img: 'carousel4.jpg', },
+        { img: 'carousel5.jpg', },
+        { img: 'carousel6.jpg', },
+        { img: 'carousel7.jpg', },
+        { img: 'carousel8.jpg', },
+        { img: 'carousel9.jpg', }
     ];
 
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -70,7 +69,7 @@ function Carousel(){
                 <Flex h="calc(100% / (4/3))" w="full" {...carouselStyle}>
                     {slides.map((slide, sid) => (
                     <Box key={`slide-${sid}`} boxSize="full" shadow="md" flex="none">
-                        <Image src={"img/"+slide.img} boxSize="full" backgroundSize="cover" />
+                        <SuspenseImage src={process.env.PUBLIC_URL+"/img/"+slide.img} boxSize="full" backgroundSize="cover" />
                     </Box>
                 ))}
                 </Flex>
