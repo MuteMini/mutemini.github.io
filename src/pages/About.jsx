@@ -107,7 +107,7 @@ function About() {
                             Who is Min?
                         </Heading>
                         <Heading textAlign="center" fontSize="3xl" variant="light-sm">
-                            I think I'm qualified to answer that... 😀
+                            I think I'm qualified to answer that... <Text style={{"-webkit-text-stroke": "0"}}>😀</Text>
                         </Heading>
                     </FadeInView>
                 </Container>
