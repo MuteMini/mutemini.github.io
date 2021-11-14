@@ -4,8 +4,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { theme } from './theme'
 
 const Index = lazy(() => import('./pages/Index'));
-const About = lazy(() => import('./pages/about/About'));
-const Project = lazy(() => import('./pages/project/Project'));
+const About = lazy(() => import('./pages/About'));
+const Project = lazy(() => import('./pages/Project'));
 
 const { PUBLIC_URL } = process.env;
 

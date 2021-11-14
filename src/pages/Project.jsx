@@ -3,7 +3,7 @@ import { lazy } from "react";
 import "@fontsource/balsamiq-sans/400-italic.css"
 import "@fontsource/poppins/400.css"
 
-const Navbar = lazy(() => import('../../components/Navbar'));
+const Navbar = lazy(() => import('../components/Navbar'));
 
 function Project() {
     return (

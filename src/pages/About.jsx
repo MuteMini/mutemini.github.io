@@ -10,9 +10,8 @@ import { motion, useAnimation } from "framer-motion";
 import "@fontsource/balsamiq-sans/400-italic.css"
 import "@fontsource/poppins/400.css"
 
-import bgImage from '../../assets/aboutBg.jpg';
-const Navbar = lazy(() => import('../../components/Navbar'));
-const Carousel = lazy(() => import('../../components/Carousel'))
+const Navbar = lazy(() => import('../components/Navbar'));
+const Carousel = lazy(() => import('../components/Carousel'))
 
 const MotionBox = motion(Box);
 
@@ -94,7 +93,7 @@ function About() {
                 <Navbar mainpage/>
             </Center>
             <Center h="100vh" w="100%" 
-                backgroundImage={bgImage} 
+                backgroundImage={"/img/aboutBg.jpg"} 
                 backgroundSize="cover"
                 backgroundAttachment="fixed"
                 backgroundPosition="center right"
