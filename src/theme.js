@@ -5,6 +5,7 @@ export const theme = extendTheme({
         Heading: {
             baseStyle: {
                 fontFamily: "Balsamiq Sans",
+                fontWeight: "300",
                 "-webkit-text-stroke": "3px var(--chakra-colors-palette-900)",
                 color: "palette.800",
             },
