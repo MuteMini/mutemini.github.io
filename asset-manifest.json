@@ -6,10 +6,10 @@
     "static/js/1.2a30adee.chunk.js": "/mutemini-website-v2/static/js/1.2a30adee.chunk.js",
     "static/js/1.2a30adee.chunk.js.map": "/mutemini-website-v2/static/js/1.2a30adee.chunk.js.map",
     "main.css": "/mutemini-website-v2/static/css/main.2ae47eeb.chunk.css",
-    "main.js": "/mutemini-website-v2/static/js/main.0826b89a.chunk.js",
-    "main.js.map": "/mutemini-website-v2/static/js/main.0826b89a.chunk.js.map",
-    "runtime-main.js": "/mutemini-website-v2/static/js/runtime-main.ace2616f.js",
-    "runtime-main.js.map": "/mutemini-website-v2/static/js/runtime-main.ace2616f.js.map",
+    "main.js": "/mutemini-website-v2/static/js/main.26335498.chunk.js",
+    "main.js.map": "/mutemini-website-v2/static/js/main.26335498.chunk.js.map",
+    "runtime-main.js": "/mutemini-website-v2/static/js/runtime-main.25de5bc9.js",
+    "runtime-main.js.map": "/mutemini-website-v2/static/js/runtime-main.25de5bc9.js.map",
     "static/js/4.eaedf627.chunk.js": "/mutemini-website-v2/static/js/4.eaedf627.chunk.js",
     "static/js/4.eaedf627.chunk.js.map": "/mutemini-website-v2/static/js/4.eaedf627.chunk.js.map",
     "static/js/5.187cbed4.chunk.js": "/mutemini-website-v2/static/js/5.187cbed4.chunk.js",
@@ -17,14 +17,14 @@
     "static/css/6.04f1fcd7.chunk.css": "/mutemini-website-v2/static/css/6.04f1fcd7.chunk.css",
     "static/js/6.e717cde1.chunk.js": "/mutemini-website-v2/static/js/6.e717cde1.chunk.js",
     "static/js/6.e717cde1.chunk.js.map": "/mutemini-website-v2/static/js/6.e717cde1.chunk.js.map",
-    "static/js/7.bbce40d0.chunk.js": "/mutemini-website-v2/static/js/7.bbce40d0.chunk.js",
-    "static/js/7.bbce40d0.chunk.js.map": "/mutemini-website-v2/static/js/7.bbce40d0.chunk.js.map",
+    "static/js/7.6515858e.chunk.js": "/mutemini-website-v2/static/js/7.6515858e.chunk.js",
+    "static/js/7.6515858e.chunk.js.map": "/mutemini-website-v2/static/js/7.6515858e.chunk.js.map",
     "static/js/8.5c7b48bf.chunk.js": "/mutemini-website-v2/static/js/8.5c7b48bf.chunk.js",
     "static/js/8.5c7b48bf.chunk.js.map": "/mutemini-website-v2/static/js/8.5c7b48bf.chunk.js.map",
     "static/js/9.b3027fa3.chunk.js": "/mutemini-website-v2/static/js/9.b3027fa3.chunk.js",
     "static/js/9.b3027fa3.chunk.js.map": "/mutemini-website-v2/static/js/9.b3027fa3.chunk.js.map",
-    "static/js/10.28f24a9f.chunk.js": "/mutemini-website-v2/static/js/10.28f24a9f.chunk.js",
-    "static/js/10.28f24a9f.chunk.js.map": "/mutemini-website-v2/static/js/10.28f24a9f.chunk.js.map",
+    "static/js/10.e53e794a.chunk.js": "/mutemini-website-v2/static/js/10.e53e794a.chunk.js",
+    "static/js/10.e53e794a.chunk.js.map": "/mutemini-website-v2/static/js/10.e53e794a.chunk.js.map",
     "static/js/11.c2ad8d22.chunk.js": "/mutemini-website-v2/static/js/11.c2ad8d22.chunk.js",
     "static/js/11.c2ad8d22.chunk.js.map": "/mutemini-website-v2/static/js/11.c2ad8d22.chunk.js.map",
     "index.html": "/mutemini-website-v2/index.html",
@@ -38,9 +38,9 @@
     "static/media/400.css": "/mutemini-website-v2/static/media/poppins-latin-ext-400-normal.53f1614b.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.ace2616f.js",
+    "static/js/runtime-main.25de5bc9.js",
     "static/js/4.eaedf627.chunk.js",
     "static/css/main.2ae47eeb.chunk.css",
-    "static/js/main.0826b89a.chunk.js"
+    "static/js/main.26335498.chunk.js"
   ]
 }
