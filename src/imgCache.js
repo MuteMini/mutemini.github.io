@@ -13,6 +13,7 @@ const imgCache = {
                     resolve(this.__cache[src]);
                 };
                 img.src = src;
+                setTimeout(() => resolve({}), 7000);
             }).then((img) => {
                 this.__cache[src] = true;
             });
