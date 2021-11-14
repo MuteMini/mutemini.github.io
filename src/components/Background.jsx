@@ -67,7 +67,7 @@ function Particles({ pointCount }) {
   );
 }
 
-function Background() {
+function Background({ ballCount }) {
   return (
     <Canvas onCreated={state => {
         state.gl.setClearColor( new THREE.Color(0xEAB48A) );
@@ -76,7 +76,7 @@ function Background() {
         colorManagement>
         <pointLight intensity={0.6} position={[70,-70,-70]} />
         <pointLight intensity={0.6} position={[-70,70,70]} />
-        <Particles pointCount={15000}/> 
+        <Particles pointCount={ballCount}/> 
     </Canvas>
   );
 }

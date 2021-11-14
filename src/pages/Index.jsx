@@ -89,7 +89,7 @@ function Index() {
             h="100vh">
             <motion.div initial={{ opacity: 0 }} animate={controlArray["bg"]} >
                 <Box position="absolute" top={0} left={0} width="100%" height="100vh" minHeight="500px">
-                    <Background />
+                    <Background ballCount={10000}/>
                 </Box>
             </motion.div>
             <motion.div 
