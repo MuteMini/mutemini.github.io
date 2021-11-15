@@ -8,8 +8,8 @@
     "main.css": "/mutemini-website-v2/static/css/main.2ae47eeb.chunk.css",
     "main.js": "/mutemini-website-v2/static/js/main.6370396a.chunk.js",
     "main.js.map": "/mutemini-website-v2/static/js/main.6370396a.chunk.js.map",
-    "runtime-main.js": "/mutemini-website-v2/static/js/runtime-main.8a94f0d6.js",
-    "runtime-main.js.map": "/mutemini-website-v2/static/js/runtime-main.8a94f0d6.js.map",
+    "runtime-main.js": "/mutemini-website-v2/static/js/runtime-main.b6ab4d0a.js",
+    "runtime-main.js.map": "/mutemini-website-v2/static/js/runtime-main.b6ab4d0a.js.map",
     "static/js/4.312d1dde.chunk.js": "/mutemini-website-v2/static/js/4.312d1dde.chunk.js",
     "static/js/4.312d1dde.chunk.js.map": "/mutemini-website-v2/static/js/4.312d1dde.chunk.js.map",
     "static/js/5.187cbed4.chunk.js": "/mutemini-website-v2/static/js/5.187cbed4.chunk.js",
@@ -23,8 +23,8 @@
     "static/js/8.3c6d39ce.chunk.js.map": "/mutemini-website-v2/static/js/8.3c6d39ce.chunk.js.map",
     "static/js/9.1c1e004b.chunk.js": "/mutemini-website-v2/static/js/9.1c1e004b.chunk.js",
     "static/js/9.1c1e004b.chunk.js.map": "/mutemini-website-v2/static/js/9.1c1e004b.chunk.js.map",
-    "static/js/10.facc25be.chunk.js": "/mutemini-website-v2/static/js/10.facc25be.chunk.js",
-    "static/js/10.facc25be.chunk.js.map": "/mutemini-website-v2/static/js/10.facc25be.chunk.js.map",
+    "static/js/10.42cfd725.chunk.js": "/mutemini-website-v2/static/js/10.42cfd725.chunk.js",
+    "static/js/10.42cfd725.chunk.js.map": "/mutemini-website-v2/static/js/10.42cfd725.chunk.js.map",
     "static/js/11.c2ad8d22.chunk.js": "/mutemini-website-v2/static/js/11.c2ad8d22.chunk.js",
     "static/js/11.c2ad8d22.chunk.js.map": "/mutemini-website-v2/static/js/11.c2ad8d22.chunk.js.map",
     "index.html": "/mutemini-website-v2/index.html",
@@ -38,7 +38,7 @@
     "static/media/400.css": "/mutemini-website-v2/static/media/poppins-latin-ext-400-normal.53f1614b.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.8a94f0d6.js",
+    "static/js/runtime-main.b6ab4d0a.js",
     "static/js/4.312d1dde.chunk.js",
     "static/css/main.2ae47eeb.chunk.css",
     "static/js/main.6370396a.chunk.js"
