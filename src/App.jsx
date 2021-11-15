@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { ChakraProvider, Center, Spinner } from "@chakra-ui/react"
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import { theme } from './theme'
 
 const Index = lazy(() => import('./pages/Index'));
@@ -27,7 +27,7 @@ const Loading = () => (
 function App() {
     return (
         <ChakraProvider theme={theme}>
-            <BrowserRouter basename={PUBLIC_URL}> 
+            <HashRouter basename={PUBLIC_URL}> 
                 <Suspense fallback={<Loading />}>
                     <Switch>
                         <Route path="/" exact component={Index} />
@@ -35,7 +35,7 @@ function App() {
                         <Route path="/project" component={Project} />
                     </Switch>
                 </Suspense>
-            </BrowserRouter>
+            </HashRouter>
         </ChakraProvider>
     )
 }
