@@ -7,8 +7,8 @@ const deg2rad = degrees => degrees * (Math.PI / 180);
 
 function Particles({ pointCount }) {
 
-  let fre = 0.20;
-  let amp = 2;
+  let fre = 0.4;
+  let amp = 1.75;
   const graph = useCallback((a, b, t) => {
     return Math.tan(fre*(a**2+b**2+t))*amp
     //return amp*Math.sin(fre*a + t)*Math.cos(fre*b + t);
@@ -26,8 +26,8 @@ function Particles({ pointCount }) {
     const positions = [...Array(pointCount)].map((_, i) => {
       const position = new THREE.Vector3()
       // Place randomly in a grid
-      position.y = THREE.MathUtils.randFloatSpread( 200 );
-      position.z = THREE.MathUtils.randFloatSpread( 200 );
+      position.y = THREE.MathUtils.randFloatSpread( 100 );
+      position.z = THREE.MathUtils.randFloatSpread( 100 );
       position.x = graph(position.y, position.z, 0);
       return position
     })
@@ -56,12 +56,13 @@ function Particles({ pointCount }) {
       mesh.current.setColorAt(i, colors[i])
     }
     mesh.current.instanceMatrix.needsUpdate = true
+    console.log(camera.current.position); 
   })
 
   return(
     <instancedMesh ref={mesh} args={[null, null, pointCount]}>
-      <PerspectiveCamera makeDefault ref={camera} position={[0, -50, 110]} rotation={[0, 0, deg2rad(55)]} />
-      <sphereBufferGeometry args={[0.15]} />
+      <PerspectiveCamera makeDefault ref={camera} position={[0, 0, 70]} rotation={[0, 0, deg2rad(55)]} />
+      <sphereBufferGeometry args={[0.13]} />
       <meshToonMaterial />
     </instancedMesh>
   );
@@ -70,13 +71,13 @@ function Particles({ pointCount }) {
 function Background({ ballCount }) {
   return (
     <Canvas onCreated={state => {
-        state.gl.setClearColor( new THREE.Color(0xEAB48A) );
-        state.gl.setClearAlpha( 0.2 )
-        }}
-        colorManagement>
-        <pointLight intensity={0.6} position={[70,-70,-70]} />
-        <pointLight intensity={0.6} position={[-70,70,70]} />
-        <Particles pointCount={ballCount}/> 
+      state.gl.setClearColor( new THREE.Color(0xEAB48A) );
+      state.gl.setClearAlpha( 0.2 )
+      }}
+      colorManagement>
+      <pointLight intensity={0.6} position={[70,-70,-70]} />
+      <pointLight intensity={0.6} position={[-70,70,70]} />
+      <Particles pointCount={ballCount}/> 
     </Canvas>
   );
 }
