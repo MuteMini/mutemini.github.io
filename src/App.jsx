@@ -7,8 +7,6 @@ const Index = lazy(() => import('./pages/Index'));
 const About = lazy(() => import('./pages/About'));
 const Project = lazy(() => import('./pages/Project'));
 
-const { PUBLIC_URL } = process.env;
-
 const Loading = () => (
     <Center
         background="palette.600"
@@ -27,7 +25,7 @@ const Loading = () => (
 function App() {
     return (
         <ChakraProvider theme={theme}>
-            <HashRouter basename={PUBLIC_URL}> 
+            <HashRouter> 
                 <Suspense fallback={<Loading />}>
                     <Switch>
                         <Route path="/" exact component={Index} />
