@@ -62,7 +62,7 @@ function Particles({ pointCount }) {
   return(
     <instancedMesh ref={mesh} args={[null, null, pointCount]}>
       <PerspectiveCamera makeDefault ref={camera} position={[0, 0, 70]} rotation={[0, 0, deg2rad(55)]} />
-      <sphereBufferGeometry args={[0.13]} />
+      <sphereBufferGeometry args={[0.2]} />
       <meshToonMaterial />
     </instancedMesh>
   );
@@ -75,8 +75,8 @@ function Background({ ballCount }) {
       state.gl.setClearAlpha( 0.2 )
       }}
       colorManagement>
-      <pointLight intensity={0.6} position={[70,-70,-70]} />
-      <pointLight intensity={0.6} position={[-70,70,70]} />
+      <ambientLight intensity={0.8} />
+      <pointLight intensity={0.4} position={[-70,100,100]} />
       <Particles pointCount={ballCount}/> 
     </Canvas>
   );
