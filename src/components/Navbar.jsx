@@ -1,4 +1,4 @@
-import { HStack, Link } from "@chakra-ui/react"
+import { Flex, Link } from "@chakra-ui/react"
 import { Link as RouterLink } from 'react-router-dom';
 
 function CustomLink(props) {
@@ -7,6 +7,7 @@ function CustomLink(props) {
             to={props.link}
             as={RouterLink}
             pos="inherit"
+            m="0 10px 0 10px"
             style={{webkitTextStroke: "1.5px var(--chakra-colors-palette-900)", whiteSpace: "nowrap"}}
             _hover={{
                 textShadow: "4px 4px 3px lightgray",
@@ -21,12 +22,19 @@ function CustomLink(props) {
 
 function NavBar({ mainpage }) {
     const PreNavBar = (props) => (
-        <HStack as="nav" pos="sticky" borderSize={1} padding={2} spacing={7}>
+        <Flex 
+            as="nav" 
+            pos="sticky" 
+            borderSize={1} 
+            padding={2} 
+            wrap="wrap" 
+            justify="center"
+        >
             {props.children}
             <CustomLink link="/about"> About Me </CustomLink>
             <CustomLink link="/project"> Projects </CustomLink>
             <CustomLink link="/contact"> Contacts </CustomLink>
-        </HStack>
+        </Flex>
     );
 
     if (mainpage) {
