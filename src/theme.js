@@ -1,12 +1,27 @@
 import { extendTheme } from "@chakra-ui/react"
+import { createBreakpoints } from "@chakra-ui/theme-tools"
 
-export const theme = extendTheme({
+// 2. Update the breakpoints as key-value pairs
+const breakpoints = createBreakpoints({
+    "xsm": "20em",
+    sm: "30em",
+    md: "48em",
+    lg: "62em",
+    xl: "80em",
+    "2xl": "96em",
+})
+
+export const theme = extendTheme({ 
+    breakpoints,
     components: {
         Heading: {
             baseStyle: {
                 fontFamily: "Balsamiq Sans",
                 fontWeight: "300",
-                "-webkit-text-stroke": "3px var(--chakra-colors-palette-900)",
+                "-webkit-text-stroke": {
+                    base: "2px var(--chakra-colors-palette-900)",
+                    md: "3px var(--chakra-colors-palette-900)"
+                },
                 color: "palette.800",
             },
             variants: {
@@ -23,7 +38,10 @@ export const theme = extendTheme({
         Text: {
             baseStyle: {
                 fontFamily: "Poppins",
-                "-webkit-text-stroke": "2px var(--chakra-colors-palette-900)",
+                "-webkit-text-stroke": {
+                    base: "1.5px var(--chakra-colors-palette-900)",
+                    md: "2px var(--chakra-colors-palette-900)"
+                },
                 color: "palette.800" 
             },
             variants: {

@@ -101,11 +101,11 @@ function Index() {
                         <motion.div initial={{ opacity: 0, y: "-50%" }} animate={controlArray["title"]} >
                             <Heading textAlign="center"
                                 textShadow="1px 1px 3px var(--chakra-colors-palette-700)" 
-                                fontSize={{base: "4xl", md: "5xl", lg: "6xl"}}> 
+                                fontSize={{base: "3xl", sm: "6.5vw", lg: "6xl"}}> 
                                 Hello! My name is Min! 
                             </Heading>
                         </motion.div>
-                        <Box width={{base: "450px", md: "600px", lg: "800px"}}>
+                        <Box width={{base: "90vw", sm: "80vw", lg: "800px"}}>
                             <Spacer controls={controlArray["spacer"]} />  
                         </Box>
                         <motion.div initial={{ opacity: 0, y: "50%" }} animate={controlArray["subtitle"]} >

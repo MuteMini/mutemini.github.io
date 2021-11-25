@@ -75,8 +75,9 @@ function Background({ ballCount }) {
       state.gl.setClearAlpha( 0.2 )
       }}
       colorManagement>
-      <ambientLight intensity={0.8} />
+      <ambientLight intensity={0.6} />
       <pointLight intensity={0.4} position={[-70,100,100]} />
+      <pointLight intensity={0.3} position={[100,-100,-100]} />
       <Particles pointCount={ballCount}/> 
     </Canvas>
   );

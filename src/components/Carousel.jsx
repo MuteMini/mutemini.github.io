@@ -11,17 +11,16 @@ function Carousel(){
         pos: "absolute",
         top: "50%",
         w: "auto",
-        mt: "-22px",
+        mt: "-30px",
         p: "16px",
         color: "white",
         fontWeight: "bold",
-        fontSize: {base: "30px", md: "40px", lg: "50px"},
+        fontSize: {base: "20px", md: "30px", lg: "50px"},
         transition: "0.6s ease",
-        borderRadius: "0 3px 3px 0",
+        borderRadius: "3px",
         userSelect: "none",
         _hover: {
-            opacity: 0.8,
-            bg: "black",
+            bg: "rgba(0, 0, 0, 0.5)",
         },
     };
 
@@ -67,7 +66,7 @@ function Carousel(){
                 border="10px solid"
                 borderColor="palette.500"
                 borderRadius="10px"
-                maxW="1300px"
+                maxW="1100px"
             >
                 <Flex h="calc(100% / (4/3))" w="full" {...carouselStyle}>
                     {slides.map((slide, sid) => (

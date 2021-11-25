@@ -77,7 +77,7 @@ function Divider() {
 function InnerText({ children, maxW, ...rest }) {
     return (
         <Container maxW={maxW} {...rest}>
-            <Text textAlign="center" h="inherit" fontSize="3xl" variant="sm">
+            <Text textAlign="center" h="inherit" fontSize={{base: "2xl", lg: "3xl"}} variant="sm">
                 {children}
             </Text>
         </Container>
@@ -127,7 +127,7 @@ function About() {
                 </FadeInView>
                 <FadeInView duration={1} distance="30px">
                     <InnerText>
-                        <Text fontSize="5xl"> Interests </Text>
+                        <Text fontSize={{base: "3xl", lg: "5xl"}}> Interests </Text>
                         <Divider />
                         Min is a puzzle addict, passionate video editor, 
                         a novice trumpet and not so novice piano player, 
