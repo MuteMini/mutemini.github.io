@@ -1,1 +1,0 @@
-{"version":3,"sources":["pages/404.jsx"],"names":["ErrorPage"],"mappings":"kIAIeA,UAJf,WACI,OAAO","file":"static/js/11.39eb46e2.chunk.js","sourcesContent":["function ErrorPage() {\r\n    return <></>\r\n}\r\n\r\nexport default ErrorPage;"],"sourceRoot":""}
