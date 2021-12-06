@@ -3,7 +3,8 @@ import { Center,
     Text, 
     Heading,
     Container,
-    Box } from "@chakra-ui/react"
+    Box,
+Flex } from "@chakra-ui/react"
 import { useEffect, lazy } from "react";
 import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
@@ -12,6 +13,7 @@ import "@fontsource/poppins/400.css"
 import imgCache from '../imgCache'
 
 const Navbar = lazy(() => import('../components/Navbar'));
+const SkillBar = lazy(() => import('../components/SkillBar'))
 const Carousel = lazy(() => import('../components/Carousel'))
 
 const MotionBox = motion(Box);
@@ -90,34 +92,43 @@ InnerText.defaultProps = {
 function About() {
     imgCache.read(process.env.PUBLIC_URL+'/img/aboutBg.jpg');
 
+    const skillInfo = [
+        {name:"Java | 2 years", p:0.6},
+        {name:"Python | 6 months", p:0.35},
+        {name:"C++ | 2 years", p:0.7},
+        {name:"Web Dev | 1 year", p:0.5},
+    ];
+
     return(
         <>
-            <Center position="sticky" zIndex={1} top={0} w="100%" bg="palette.700">
-                <Navbar mainpage/>
-            </Center>
-            <Center h="100vh" w="100%" 
-                backgroundImage={process.env.PUBLIC_URL+"/img/aboutBg.jpg"} 
-                backgroundSize="cover"
-                backgroundAttachment="fixed"
-                backgroundPosition="center right"
-            >
-                <Container maxW="50rem">
-                    <FadeInView duration={2}>
-                        <Heading textAlign="center" fontSize="6xl" variant="light">
-                            Who is Min?
-                        </Heading>
-                        <Heading textAlign="center" fontSize="3xl" variant="light-sm">
-                            I think I'm qualified to answer that... <Text style={{"-webkit-text-stroke": "0"}}>😀</Text>
-                        </Heading>
-                    </FadeInView>
-                </Container>
-            </Center>
+            <Flex direction="column" h="100vh">
+                <Center position="sticky" zIndex={1} top={0} bg="palette.700">
+                    <Navbar mainpage/>
+                </Center>
+                <Center flex="1 1 auto"
+                    backgroundImage={process.env.PUBLIC_URL+"/img/aboutBg.jpg"} 
+                    backgroundSize="cover"
+                    backgroundAttachment="fixed"
+                    backgroundPosition="center right"
+                >
+                    <Container maxW="50rem">
+                        <FadeInView duration={2}>
+                            <Heading textAlign="center" fontSize="6xl" variant="light">
+                                Who is Min?
+                            </Heading>
+                            <Heading textAlign="center" fontSize="3xl" variant="light-sm">
+                                I think I'm qualified to answer that... <Text style={{"-webkit-text-stroke": "0"}}>😀</Text>
+                            </Heading>
+                        </FadeInView>
+                    </Container>
+                </Center>
+            </Flex>
             <VStack h="100%" 
                 maxH="3000px" 
                 overflow="hidden" 
                 justifyContent="start"
                 margin={6}
-                spacing="100px"
+                spacing={{base:"40px", lg:"70px"}}
             >
                 <FadeInView duration={1} distance="30px">
                     <InnerText marginTop="20px">
@@ -148,10 +159,12 @@ function About() {
                     <InnerText>
                         <Text fontSize="5xl"> Skillz </Text>
                         <Divider />
-                        Lorem ipsum dolor sit amet, consectetur adipiscing 
-                        elit, sed do eiusmod tempor incididunt ut labore et 
-                        dolore magna aliqua.
                     </InnerText>
+                    {skillInfo.map((skill, sid) => (
+                        <SkillBar percent={skill.p}>
+                            <InnerText m={2} maxW={(skill.name.length+2)+"em"}> {skill.name} </InnerText>
+                        </SkillBar>
+                    ))}
                 </FadeInView>
             </VStack>
         </>
