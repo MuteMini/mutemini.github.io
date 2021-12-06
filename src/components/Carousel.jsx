@@ -56,16 +56,15 @@ function Carousel(){
     return (
         <Flex
             w="full"
-            p={5}
+            p={{base:1, md:5}}
             alignItems="center"
             justifyContent="center"
         >
             <Flex w="full" 
                 overflow="hidden" 
                 pos="relative" 
-                border="10px solid"
-                borderColor="palette.500"
-                borderRadius="10px"
+                border={{base:"5px solid var(--chakra-colors-palette-500)", md:"10px solid var(--chakra-colors-palette-500)"}}
+                borderRadius={{base:"10px", md:"20px"}}
                 maxW="1100px"
             >
                 <Flex h="calc(100% / (4/3))" w="full" {...carouselStyle}>
