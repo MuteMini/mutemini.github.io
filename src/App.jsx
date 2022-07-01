@@ -6,6 +6,7 @@ import { theme } from './theme'
 const Index = lazy(() => import('./pages/Index'));
 const About = lazy(() => import('./pages/About'));
 const Project = lazy(() => import('./pages/Project'));
+const Contact = lazy(() => import('./pages/Contact'));
 const ErrorPage = lazy(() => import('./pages/404'));
 
 const Loading = () => (
@@ -32,6 +33,7 @@ function App() {
                         <Route path="/" exact component={Index} />
                         <Route path="/about" component={About} />
                         <Route path="/project" component={Project} />
+                        <Route path="/Contact" component={Contact} />
                         <Route path="*" component={ErrorPage}/>
                     </Switch>
                 </Suspense>
