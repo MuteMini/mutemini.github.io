@@ -11,7 +11,7 @@ function Contact() {
             <Center position="sticky" zIndex={1} top={0} w="100%" bg="palette.700">
                 <Navbar mainpage/>
             </Center>
-            <Center h="100vh" w="100%" >
+            <Center h="100%" w="100%" >
                 
             </Center>
         </>

@@ -40,7 +40,7 @@ function NavBar({ mainpage }) {
     if (mainpage) {
         return (
             <PreNavBar>
-                <CustomLink link="/"> Homepage </CustomLink>
+                <CustomLink link="/"> Home </CustomLink>
             </PreNavBar>
         );
     }
