@@ -79,7 +79,7 @@ function SkillBar({ percent, children }) {
 
     return (
         <Flex alignItems="center">
-            <Box h="35px" w={{base:"50vw", md:"500px"}} borderRadius="xl" bg="gray.400">
+            <Box h="35px" w={{base: "250px", sm: "300px", md: "500px"}} borderRadius="xl" bg="gray.400">
                 <MotionBox 
                     ref={ref}
                     animate={control}
@@ -89,7 +89,7 @@ function SkillBar({ percent, children }) {
                     w={"calc(100%*"+percent+"*var(--animate-width))"} 
                     borderRadius="xl" 
                     bg={bgColor}>
-                    <Text position="relative" top="3px" left="10px" fontSize="lg" whiteSpace="nowrap" variant="light-sm"> {title} </Text>
+                    <Text position="relative" top="3px" left="10px" fontSize={{base:"lg", md:"xl"}} whiteSpace="nowrap" variant="light-sm"> {title} </Text>
                 </MotionBox>
             </Box>
             {children}

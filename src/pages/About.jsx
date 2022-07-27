@@ -79,7 +79,7 @@ function Divider() {
 function InnerText({ children, maxW, ...rest }) {
     return (
         <Container maxW={maxW} {...rest}>
-            <Text textAlign="center" h="inherit" fontSize={{base: "2xl", lg: "3xl"}} variant="sm">
+            <Text textAlign="center" h="inherit" fontSize={{base: "xl", md: "2xl", lg: "3xl"}} variant="sm">
                 {children}
             </Text>
         </Container>
@@ -101,10 +101,10 @@ function About() {
 
     return(
         <>
+            <Center position="sticky" zIndex={1} top={0} bg="palette.700">
+                <Navbar mainpage/>
+            </Center>
             <Flex direction="column" h="100vh">
-                <Center position="sticky" zIndex={1} top={0} bg="palette.700">
-                    <Navbar mainpage/>
-                </Center>
                 <Center flex="1 1 auto"
                     backgroundImage={process.env.PUBLIC_URL+"/img/aboutBg.jpg"} 
                     backgroundSize="cover"
@@ -162,7 +162,7 @@ function About() {
                     </InnerText>
                     {skillInfo.map((skill, sid) => (
                         <SkillBar percent={skill.p}>
-                            <InnerText m={2} maxW={(skill.name.length+2)+"em"}> {skill.name} </InnerText>
+                            <InnerText m="5px" maxW="20rem"> {skill.name} </InnerText>
                         </SkillBar>
                     ))}
                 </FadeInView>
