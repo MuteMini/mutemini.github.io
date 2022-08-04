@@ -6,6 +6,7 @@ import "@fontsource/poppins/400.css"
 import { motion, useAnimation } from "framer-motion"
 import { lazy, useEffect } from "react"
 import { useInView } from "react-intersection-observer"
+import FadeInView from '../containers/FadeInView'
 import imgCache from '../imgCache'
 
 const Navbar = lazy(() => import('../components/Navbar'));
@@ -13,36 +14,6 @@ const SkillBar = lazy(() => import('../components/SkillBar'))
 const Carousel = lazy(() => import('../components/Carousel'))
 
 const MotionBox = motion(Box);
-
-function FadeInView({ children, duration, distance }) {
-    const control = useAnimation();
-    const [ref, inView] = useInView();
-
-    useEffect(() => {
-        if (inView) {
-            control.start("visible");
-        }
-    }, [control, inView]);
-
-    return(
-        <motion.div
-            style={{ zIndex: 0 }}
-            ref={ref}
-            animate={control}
-            initial={"hidden"}
-            transition={{duration: duration, ease: "easeInOut"}}
-            variants={{
-                visible: { opacity: 1, y: 0 },
-                hidden: { opacity: 0, y: distance }
-            }}
-        >
-            {children}
-        </motion.div>
-    );
-}
-FadeInView.defaultProps = {
-    distance: "100px"
-};
 
 function Divider() {
     const control = useAnimation();
