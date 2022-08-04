@@ -132,8 +132,8 @@ function About() {
             >
                 <FadeInView duration={1} distance="30px">
                     <InnerText marginTop="20px">
-                        Min is a grade 12 student currently attending 
-                        William Lyon Mackenzie C.I.
+                        Min is a first year Waterloo ECE student. <br/>
+                        He is also an alumni of the MACS program.
                     </InnerText>
                 </FadeInView>
                 <FadeInView duration={1} distance="30px">
@@ -147,11 +147,10 @@ function About() {
                     <InnerText marginTop="50px">
                         Min doesn't play much sports, but if he had to
                         choose, his favouries would be ultimate frisbee,
-                        kendo, and soccer.
+                        kendo, and rock climbing.
                     </InnerText>
                     <InnerText marginTop="50px">
-                        Min also loves to take photos. Here are some he took
-                        that he is proud of.
+                        He also loves to take photos.
                     </InnerText>
                     <Carousel />
                 </FadeInView>
