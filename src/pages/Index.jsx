@@ -28,8 +28,7 @@ function Index() {
         "total": useAnimation(),
         "title": useAnimation(),
         "spacer": useAnimation(),
-        "subtitle": useAnimation(),
-        "navbar": useAnimation(),
+        "rest": useAnimation(),
         "bg": useAnimation()
     };
 
@@ -53,29 +52,22 @@ function Index() {
                 })
             ]);
             await Promise.all([
-                controlArray["spacer"].start({ 
-                    fillOpacity: 1,
-                    transition: { duration: 2, ease: "easeOut" }
-                }),
-                controlArray["subtitle"].start({ 
-                    opacity: 1,
-                    y: 0,
-                    transition: { type: "spring", stiffness: 70 }
-                })
-            ]);
-            return await Promise.all([
                 controlArray["total"].start({ 
                     y: 0,
                     transition: { duration: 1, ease: "easeInOut" }
                 }),
-                controlArray["navbar"].start({
+                controlArray["rest"].start({ 
                     opacity: 1,
                     y: 0,
-                    transition: { type: "spring", stiffness: 40 }
+                    transition: { type: "spring", stiffness: 70 }
+                }),
+                controlArray["spacer"].start({ 
+                    fillOpacity: 1,
+                    transition: { duration: 2, ease: "easeOut" }
                 }),
                 controlArray["bg"].start({
                     opacity: 1,
-                    transition: { duration: 5, ease: "easeInOut" }
+                    transition: { duration: 4, ease: "easeInOut" }
                 })
             ]);
         }
@@ -97,7 +89,7 @@ function Index() {
                 initial={{ y: "3vh" }}
                 animate={controlArray["total"]}>
                 <VStack>
-                    <VStack spacing={2}>
+                    <VStack spacing={-3}>
                         <motion.div initial={{ opacity: 0, y: "-50%" }} animate={controlArray["title"]} >
                             <Heading textAlign="center"
                                 textShadow="1px 1px 3px var(--chakra-colors-palette-700)" 
@@ -108,7 +100,7 @@ function Index() {
                         <Box width={{base: "90vw", sm: "80vw", lg: "800px"}}>
                             <Spacer controls={controlArray["spacer"]} />  
                         </Box>
-                        <motion.div initial={{ opacity: 0, y: "50%" }} animate={controlArray["subtitle"]} >
+                        <motion.div initial={{ opacity: 0, y: "50%" }} animate={controlArray["rest"]} >
                             <Container maxW="lg" centerContent>
                                 <Text textShadow="2px 2px 3px var(--chakra-colors-palette-700)" 
                                     textAlign="center"
@@ -118,7 +110,7 @@ function Index() {
                             </Container>
                         </motion.div>
                     </VStack>
-                    <motion.div style={{pointerEvents: "auto"}} initial={{ opacity: 0, y: "30%" }} animate={controlArray["navbar"]}>
+                    <motion.div style={{pointerEvents: "auto"}} initial={{ opacity: 0, y: "30%" }} animate={controlArray["rest"]}>
                         <Navbar mainpage={false}/>
                     </motion.div>
                 </VStack>
