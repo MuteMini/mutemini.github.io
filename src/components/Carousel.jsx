@@ -24,20 +24,8 @@ function Carousel(){
         },
     };
 
-    const slides = [
-        { img: '/img/carousel1.jpg', },
-        { img: '/img/carousel2.jpg', },
-        { img: '/img/carousel3.jpg', },
-        { img: '/img/carousel4.jpg', },
-        { img: '/img/carousel5.jpg', },
-        { img: '/img/carousel6.jpg', },
-        { img: '/img/carousel7.jpg', },
-        { img: '/img/carousel8.jpg', },
-        { img: '/img/carousel9.jpg', }
-    ];
-
     const [currentSlide, setCurrentSlide] = useState(0);
-    const slidesCount = slides.length;
+    const slidesCount = 9;
 
     const prevSlide = () => {
         setCurrentSlide((s) => (s === 0 ? slidesCount - 1 : s - 1));
@@ -51,11 +39,13 @@ function Carousel(){
         ml: `-${currentSlide * 100}%`,
     };
 
-    slides.forEach((slide) => imgCache.read(process.env.PUBLIC_URL+slide.img));
+    for(var i = 1; i <= slidesCount; i++) {
+        imgCache.read(process.env.PUBLIC_URL+'/img/carousel/carousel'+i+'.jpg');
+    }
 
     return (
         <Flex
-            w="full"
+            w="full" 
             p={{base:1, md:5}}
             alignItems="center"
             justifyContent="center"
@@ -68,9 +58,9 @@ function Carousel(){
                 maxW="1100px"
             >
                 <Flex h="calc(100% / (4/3))" w="full" {...carouselStyle}>
-                    {slides.map((slide, sid) => (
+                    {Array(slidesCount).fill(1).map((e, sid) => (
                     <Box key={`slide-${sid}`} boxSize="full" shadow="md" flex="none">
-                        <Image src={process.env.PUBLIC_URL+slide.img} boxSize="full" backgroundSize="cover" />
+                        <Image src={process.env.PUBLIC_URL+'/img/carousel/carousel'+(sid+1)+'.jpg'} boxSize="full" backgroundSize="cover" />
                     </Box>
                 ))}
                 </Flex>
