@@ -1,15 +1,11 @@
-import { Center,
-    VStack, 
-    Text, 
-    Heading,
-    Container,
-    Box,
-Flex } from "@chakra-ui/react"
-import { useEffect, lazy } from "react";
-import { useInView } from "react-intersection-observer";
-import { motion, useAnimation } from "framer-motion";
+import {
+    Box, Center, Container, Flex, Heading, Text, VStack
+} from "@chakra-ui/react"
 import "@fontsource/balsamiq-sans/400-italic.css"
 import "@fontsource/poppins/400.css"
+import { motion, useAnimation } from "framer-motion"
+import { lazy, useEffect } from "react"
+import { useInView } from "react-intersection-observer"
 import imgCache from '../imgCache'
 
 const Navbar = lazy(() => import('../components/Navbar'));
@@ -30,15 +26,16 @@ function FadeInView({ children, duration, distance }) {
 
     return(
         <motion.div
-        style={{ zIndex: 0 }}
-        ref={ref}
-        animate={control}
-        initial={"hidden"}
-        transition={{duration: duration, ease: "easeInOut"}}
-        variants={{
-            visible: { opacity: 1, y: 0 },
-            hidden: { opacity: 0, y: distance }
-        }}>
+            style={{ zIndex: 0 }}
+            ref={ref}
+            animate={control}
+            initial={"hidden"}
+            transition={{duration: duration, ease: "easeInOut"}}
+            variants={{
+                visible: { opacity: 1, y: 0 },
+                hidden: { opacity: 0, y: distance }
+            }}
+        >
             {children}
         </motion.div>
     );
@@ -60,18 +57,19 @@ function Divider() {
     return (
         <Center>
             <MotionBox
-            zIndex={0}
-            borderRadius="2px"
-            border="2px solid"
-            borderColor="palette.500"
-            ref={ref}
-            animate={control}
-            initial={"hidden"}
-            transition={{ duration: 2, ease: "easeOut" }}
-            variants={{
-                visible: { width: "50%" },
-                hidden: { width: "0%" }
-            }} />
+                zIndex={0}
+                borderRadius="2px"
+                border="2px solid"
+                borderColor="palette.500"
+                ref={ref}
+                animate={control}
+                initial={"hidden"}
+                transition={{ duration: 2, ease: "easeOut" }}
+                variants={{
+                    visible: { width: "50%" },
+                    hidden: { width: "0%" }
+                }} 
+            />
         </Center> 
     );
 }
@@ -105,7 +103,8 @@ function About() {
                 <Navbar mainpage/>
             </Center>
             <Flex direction="column" h="100vh">
-                <Center flex="1 1 auto"
+                <Center 
+                    flex="1 1 auto"
                     backgroundImage={process.env.PUBLIC_URL+"/img/aboutBg.jpg"} 
                     backgroundSize="cover"
                     backgroundAttachment="fixed"
@@ -123,7 +122,8 @@ function About() {
                     </Container>
                 </Center>
             </Flex>
-            <VStack h="100%" 
+            <VStack 
+                h="100%" 
                 maxH="3000px" 
                 overflow="hidden" 
                 justifyContent="start"

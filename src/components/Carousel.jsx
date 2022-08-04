@@ -1,11 +1,10 @@
-import { Flex, 
-    Box, 
-    Text,
-    Image } from "@chakra-ui/react"
-import { useState } from 'react'
-import imgCache from '../imgCache'
+import {
+    Box, Flex, Image, Text
+} from "@chakra-ui/react";
+import { useState } from 'react';
+import imgCache from '../imgCache';
 
-function Carousel(){
+function Carousel() {
     const arrowStyles = {
         cursor: "pointer",
         pos: "absolute",
@@ -50,7 +49,8 @@ function Carousel(){
             alignItems="center"
             justifyContent="center"
         >
-            <Flex w="full" 
+            <Flex 
+                w="full" 
                 overflow="hidden" 
                 pos="relative" 
                 border={{base:"5px solid var(--chakra-colors-palette-500)", md:"10px solid var(--chakra-colors-palette-500)"}}
@@ -60,7 +60,11 @@ function Carousel(){
                 <Flex h="calc(100% / (4/3))" w="full" {...carouselStyle}>
                     {Array(slidesCount).fill(1).map((e, sid) => (
                     <Box key={`slide-${sid}`} boxSize="full" shadow="md" flex="none">
-                        <Image src={process.env.PUBLIC_URL+'/img/carousel/carousel'+(sid+1)+'.jpg'} boxSize="full" backgroundSize="cover" />
+                        <Image 
+                            src={process.env.PUBLIC_URL+'/img/carousel/carousel'+(sid+1)+'.jpg'} 
+                            boxSize="full" 
+                            backgroundSize="cover" 
+                        />
                     </Box>
                 ))}
                 </Flex>

@@ -1,27 +1,15 @@
-import { 
-    Center,
-    VStack, 
-    Text, 
-    Heading,
-    Container,
-    Box } from "@chakra-ui/react"
-import { useEffect, lazy } from "react"
-import { useInView } from "react-intersection-observer";
-import { motion, useAnimation } from "framer-motion"
+import {
+    Box, Center, Container, Heading, Text, VStack
+} from "@chakra-ui/react"
 import "@fontsource/balsamiq-sans/400-italic.css"
 import "@fontsource/poppins/400.css"
+import { motion, useAnimation } from "framer-motion"
+import { lazy, useEffect } from "react"
+import { useInView } from "react-intersection-observer"
 
-import Spacer from '../components/Spacer'
-const Navbar = lazy(() => {
-    return new Promise(resolve => {
-        setTimeout(() => resolve(import('../components/Navbar')));
-    });
-});
-const Background = lazy(() => {
-    return new Promise(resolve => {
-        setTimeout(() => resolve(import('../components/Background')));
-    });
-});
+const Spacer = lazy(() => import('../components/Spacer'));
+const Navbar = lazy(() => import('../components/Navbar'));
+const Background = lazy(() => import('../components/Background'))
 
 function Index() {
     const controlArray = {
@@ -78,7 +66,8 @@ function Index() {
             ref={ref}
             bg="palette.600"
             minH="100vh" 
-            h="100vh">
+            h="100vh"
+        >
             <motion.div initial={{ opacity: 0 }} animate={controlArray["bg"]} >
                 <Box position="absolute" top={0} left={0} width="100%" height="100vh" minHeight="500px">
                     <Background ballCount={2000}/>
@@ -87,13 +76,16 @@ function Index() {
             <motion.div 
                 style={{ pointerEvents: "none" }}
                 initial={{ y: "3vh" }}
-                animate={controlArray["total"]}>
+                animate={controlArray["total"]}
+            >
                 <VStack>
                     <VStack spacing={-3}>
                         <motion.div initial={{ opacity: 0, y: "-50%" }} animate={controlArray["title"]} >
-                            <Heading textAlign="center"
+                            <Heading 
+                                textAlign="center"
                                 textShadow="1px 1px 3px var(--chakra-colors-palette-700)" 
-                                fontSize={{base: "3xl", sm: "6.5vw", lg: "6xl"}}> 
+                                fontSize={{base: "3xl", sm: "6.5vw", lg: "6xl"}}
+                            > 
                                 Hello! My name is Min! 
                             </Heading>
                         </motion.div>

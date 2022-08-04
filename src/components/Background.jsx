@@ -1,12 +1,11 @@
-import React, { useRef, useMemo, useCallback } from 'react'
-import { Canvas, useFrame } from "@react-three/fiber"
-import { PerspectiveCamera } from '@react-three/drei'
-import * as THREE from 'three'
+import { PerspectiveCamera } from '@react-three/drei';
+import { Canvas, useFrame } from "@react-three/fiber";
+import React, { useCallback, useMemo, useRef } from 'react';
+import * as THREE from 'three';
 
 const deg2rad = degrees => degrees * (Math.PI / 180);
 
 function Particles({ pointCount }) {
-
   let fre = 0.4;
   let amp = 1.75;
   const graph = useCallback((a, b, t) => {
