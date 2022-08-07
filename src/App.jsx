@@ -1,7 +1,7 @@
-import React, { Suspense, lazy } from 'react';
-import { ChakraProvider, Center, Spinner } from "@chakra-ui/react"
-import { HashRouter, Route, Switch } from 'react-router-dom';
-import { theme } from './theme'
+import { Center, ChakraProvider, Spinner } from "@chakra-ui/react";
+import React, { lazy, Suspense, useEffect } from 'react';
+import { HashRouter, Route, Switch, useLocation } from 'react-router-dom';
+import { theme } from './theme';
 
 const Index = lazy(() => import('./pages/Index'));
 const About = lazy(() => import('./pages/About'));
@@ -24,10 +24,24 @@ const Loading = () => (
     </Center>
 );
 
+function ScrollToTop() {
+    const pathName = useLocation();
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth"});
+    }, [pathName])
+
+    return null;
+}
+
 function App() {
     return (
         <ChakraProvider theme={theme}>
             <HashRouter> 
+                <ScrollToTop />
                 <Suspense fallback={<Loading />}>
                     <Switch>
                         <Route path="/" exact component={Index} />
