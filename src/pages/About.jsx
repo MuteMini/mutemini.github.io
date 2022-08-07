@@ -59,14 +59,14 @@ InnerText.defaultProps = {
 }
 
 function About() {
-    imgCache.read(process.env.PUBLIC_URL+'/img/aboutBg.jpg');
-
     const skillInfo = [
         {name:'Java | 2 years', p:0.6},
         {name:'Python | 6 months', p:0.35},
         {name:'C++ | 2 years', p:0.7},
         {name:'Web Dev | 1 year', p:0.5},
     ];
+
+    imgCache.read(process.env.PUBLIC_URL+'/img/aboutBg.jpg');
 
     return(
         <>
@@ -81,7 +81,7 @@ function About() {
                     backgroundAttachment='fixed'
                     backgroundPosition='center right'
                 >
-                    <Container mt='-10px' maxW='50rem'>
+                    <Container mt='-20px' maxW='50rem'>
                         <FadeInView duration={2}>
                             <Heading textAlign='center' fontSize='6xl' variant='light'>
                                 Who is Min?
