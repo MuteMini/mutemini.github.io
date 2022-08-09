@@ -4,28 +4,29 @@ import {
 import { useState } from 'react';
 import imgCache from '../imgCache';
 
+const arrowStyles = {
+    cursor: "pointer",
+    pos: "absolute",
+    top: "50%",
+    w: "auto",
+    mt: "-30px",
+    p: "16px",
+    color: "white",
+    fontWeight: "bold",
+    fontSize: {base: "20px", md: "30px", lg: "50px"},
+    transition: "0.6s ease",
+    borderRadius: "3px",
+    userSelect: "none",
+    _hover: {
+        bg: "rgba(0, 0, 0, 0.5)",
+    },
+};
+
+const slidesCount = 9;
+
 function Carousel() {
-    const arrowStyles = {
-        cursor: "pointer",
-        pos: "absolute",
-        top: "50%",
-        w: "auto",
-        mt: "-30px",
-        p: "16px",
-        color: "white",
-        fontWeight: "bold",
-        fontSize: {base: "20px", md: "30px", lg: "50px"},
-        transition: "0.6s ease",
-        borderRadius: "3px",
-        userSelect: "none",
-        _hover: {
-            bg: "rgba(0, 0, 0, 0.5)",
-        },
-    };
-
     const [currentSlide, setCurrentSlide] = useState(0);
-    const slidesCount = 9;
-
+    
     const prevSlide = () => {
         setCurrentSlide((s) => (s === 0 ? slidesCount - 1 : s - 1));
     };

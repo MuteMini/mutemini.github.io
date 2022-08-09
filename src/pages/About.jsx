@@ -58,14 +58,14 @@ InnerText.defaultProps = {
     maxW: '60rem'
 }
 
-function About() {
-    const skillInfo = [
-        {name:'Java | 2 years', p:0.6},
-        {name:'Python | 6 months', p:0.35},
-        {name:'C++ | 2 years', p:0.7},
-        {name:'Web Dev | 1 year', p:0.5},
-    ];
+const skillInfo = [
+    {name:'Java | 2 years', p:0.6},
+    {name:'Python | 6 months', p:0.35},
+    {name:'C++ | 2 years', p:0.7},
+    {name:'Web Dev | 1 year', p:0.5},
+];
 
+function About() {
     imgCache.read(process.env.PUBLIC_URL+'/img/aboutBg.jpg');
 
     return(
