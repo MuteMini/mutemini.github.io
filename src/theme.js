@@ -49,6 +49,11 @@ export const theme = extendTheme({
                     color: "palette.600",
                     "-webkit-text-stroke": "2px var(--chakra-colors-palette-400)",
                 },
+                "light-thicker": {
+                    color: "palette.600",
+                    fontWeight: "500",
+                    "-webkit-text-stroke": "1.5px var(--chakra-colors-palette-400)",
+                },
                 "light-sm": {
                     color: "palette.600",
                     "-webkit-text-stroke": "1px var(--chakra-colors-palette-400)",
