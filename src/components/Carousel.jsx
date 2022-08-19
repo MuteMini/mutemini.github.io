@@ -1,5 +1,5 @@
 import {
-    Box, Flex, Image, Text
+    AspectRatio, Flex, Image, Text
 } from "@chakra-ui/react";
 import { useState } from 'react';
 import imgCache from '../imgCache';
@@ -13,7 +13,7 @@ const arrowStyles = {
     p: "16px",
     color: "white",
     fontWeight: "bold",
-    fontSize: {base: "20px", md: "30px", lg: "50px"},
+    fontSize: {base: "20px", md: "30px", lg:"40px"},
     transition: "0.6s ease",
     borderRadius: "3px",
     userSelect: "none",
@@ -51,23 +51,19 @@ function Carousel() {
             justifyContent="center"
         >
             <Flex 
-                w="full" 
                 overflow="hidden" 
                 pos="relative" 
-                border={{base:"5px solid var(--chakra-colors-palette-500)", md:"10px solid var(--chakra-colors-palette-500)"}}
+                border="10px solid var(--chakra-colors-palette-500)"
                 borderRadius={{base:"10px", md:"20px"}}
-                maxW="1100px"
             >
-                <Flex h="calc(100% / (4/3))" w="full" {...carouselStyle}>
+                <Flex h="80vh" w="calc(80vh * (3/2))" {...carouselStyle}>
                     {Array(slidesCount).fill(1).map((e, sid) => (
-                    <Box key={`slide-${sid}`} boxSize="full" shadow="md" flex="none">
                         <Image 
+                            key={`slide-${sid}`}
                             src={process.env.PUBLIC_URL+'/img/carousel/carousel'+(sid+1)+'.jpg'} 
-                            boxSize="full" 
-                            backgroundSize="cover" 
+                            flex="none"
                         />
-                    </Box>
-                ))}
+                    ))}
                 </Flex>
                 <Text {...arrowStyles} variant="light" left="0" onClick={prevSlide}>
                     &#10094;
