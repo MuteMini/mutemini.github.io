@@ -8,6 +8,7 @@ import { lazy, useState } from 'react';
 import { motion } from "framer-motion";
 import FadeInView from '../containers/FadeInView';
 import imgCache from '../imgCache';
+import {projects} from '../projectData'
 
 const Navbar = lazy(() => import('../components/Navbar'));
 
@@ -60,51 +61,6 @@ function ProjectCard(props) {
 }
 
 function Project() {
-    const projects = [
-        { title: 'Screensaver Generator', 
-            date: 'December 2018', 
-            img: 'screensaver.jpg',
-            tags: [],
-            desc: '', 
-            link: 'https://github.com/MuteMini/ICS2D3-ISP' },
-        { title: 'Who Wants To Be A Milionaire', 
-            date: 'December 2019', 
-            img: 'wwtbam.jpg', 
-            tags: [],
-            desc: '', 
-            link: 'https://github.com/MuteMini/ICS3U3-ISP' },
-        { title: 'Validdit', 
-            date: 'June 2020', 
-            img: 'validdit.jpg', 
-            tags: [],
-            desc: '', 
-            link: 'https://devpost.com/software/validdit-dcfjua' },
-        { title: 'Bus Conductor', 
-            date: 'June 2020', 
-            img: 'busmanager.jpg', 
-            tags: [],
-            desc: '', 
-            link: 'https://github.com/MuteMini/ICS4U0-ISP' },
-        { title: 'SokoSwitch', 
-            date: 'July 2020', 
-            img: 'sokoswitch.gif', 
-            tags: [],
-            desc: '', 
-            link: 'https://github.com/MuteMini/Sokoswitch' },
-        { title: 'Auricular.ai', 
-            date: 'January 2021', 
-            img: 'auricular.jpg', 
-            tags: [],
-            desc: '', 
-            link: 'https://devpost.com/software/auricular-ai' },
-        { title: 'HandPong', 
-            date: 'September 2021', 
-            img: 'handpong.jpg', 
-            tags: [],
-            desc: '', 
-            link: 'https://devpost.com/software/handpong' },
-    ];
-
     imgCache.read(process.env.PUBLIC_URL+'/img/projectBg.jpg')
     projects.forEach((proj) => imgCache.read(process.env.PUBLIC_URL+'/img/project/'+proj.img));
 
