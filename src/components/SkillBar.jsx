@@ -77,17 +77,17 @@ function SkillBar({ percent, children }) {
 
     return (
         <Flex alignItems='center'>
-            <Box h='35px' w={{base: '250px', sm: '300px', md: '500px'}} borderRadius='xl' bg='gray.400'>
+            <Box h='35px' w={{ base: '250px', sm: '300px', md: '500px' }} borderRadius='xl' bg='gray.400'>
                 <MotionBox 
                     ref={ref}
                     animate={control}
                     transition={{ duration: 2, ease: 'easeOut' }}
-                    initial={{'--animate-width': 0, 'background-color': start.getHexCode()}}
+                    initial={{ '--animate-width': 0, 'background-color': start.getHexCode() }}
                     h='100%' 
                     w={'calc(100%*'+percent+'*var(--animate-width))'} 
                     borderRadius='xl' 
                 >
-                    <Text position='relative' top='3px' left='10px' fontSize={{base:'lg', md:'xl'}} whiteSpace='nowrap' variant='light-sm'> {title} </Text>
+                    <Text position='relative' top='3px' left='10px' fontSize={{ base:'lg', md:'xl' }} whiteSpace='nowrap' variant='light-sm'> {title} </Text>
                 </MotionBox>
             </Box>
             {children}
