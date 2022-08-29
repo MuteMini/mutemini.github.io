@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://mutemini.github.io/mutemini-website-v2",
   "dependencies": {
+    "@chakra-ui/icons": "^2.0.9",
     "@chakra-ui/react": "^1.6.8",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",

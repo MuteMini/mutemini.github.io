@@ -1,19 +1,19 @@
+import { LinkIcon } from '@chakra-ui/icons'
 import {
-    Box, Center, Container, Flex, Heading, Image, Text, Wrap, WrapItem
+    Box, Center, Container, Flex, Heading, Image, Link, Portal, Text, Tooltip, Wrap, WrapItem
 } from '@chakra-ui/react'
 import '@fontsource/balsamiq-sans/400-italic.css'
 import '@fontsource/poppins/400.css'
 import '@fontsource/poppins/500.css'
-import { lazy, useState } from 'react'
 import { motion } from 'framer-motion'
+import { lazy, useRef, useState } from 'react'
 import FadeInView from '../containers/FadeInView'
 import imgCache from '../imgCache'
-import {projects} from '../projectData'
+import { projects } from '../projectData'
 
 const Navbar = lazy(() => import('../components/Navbar'));
 
 const MotionBox = motion(Box);
-const MotionText = motion(Text);
 
 const variants = {
     offSize: { 'max-width': 'var(--chakra-sizes-2xs)' },
@@ -24,6 +24,8 @@ const variants = {
 const transType = { type: 'spring', bounce: 0.25, stiffness: 50 };
 
 function ProjectCard(props) {
+    const ref = useRef();
+
     const [clicked, setClicked] = useState(true);
 
     return (
@@ -49,24 +51,37 @@ function ProjectCard(props) {
                     <Image
                         src={process.env.PUBLIC_URL+'/img/project/'+props.img}
                         pointerEvents='none'
-                        
+                        maxW='sm'
                         boxSize='full'
                         shadow='base'
                         borderRadius='lg'
                         m={2}
                     />
                 </Center>
-                <MotionText 
-                    m='5px 0 10px 10px' 
-                    variant='sm' 
-                    fontSize={{base: 'lg', lg: 'xl'}}
+                <motion.div 
                     animate={clicked ? 'offHidden' : 'onHidden' }
                     variants={variants}
                     transition={transType}
+                    ref={ref}
                 >
-                    {props.desc}
-                </MotionText>
+                    <Text m='5px 0 10px 10px' variant='sm' fontSize={{base: 'lg', lg: 'xl'}}>
+                        {props.desc}
+                    </Text>
+                </motion.div>
             </MotionBox>
+            <Portal containerRef={ref}>
+                <Center m={3}>
+                    <Tooltip hasArrow label='Go to project link' bg='palette.400' color='white'>
+                        <Link href={props.link} isExternal>
+                            <LinkIcon
+                                pointerEvents='visible'
+                                boxSize={10} 
+                                _hover={{'color':'palette.900'}}
+                            />
+                        </Link>
+                    </Tooltip>
+                </Center>
+            </Portal>
         </FadeInView>
     );
 }
