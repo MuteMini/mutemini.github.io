@@ -1,24 +1,25 @@
 import {
     Box, Center, Container, Flex, Heading, Image, Text, Wrap, WrapItem
-} from '@chakra-ui/react';
-import '@fontsource/balsamiq-sans/400-italic.css';
-import '@fontsource/poppins/400.css';
+} from '@chakra-ui/react'
+import '@fontsource/balsamiq-sans/400-italic.css'
+import '@fontsource/poppins/400.css'
 import '@fontsource/poppins/500.css'
-import { lazy, useState } from 'react';
-import { motion } from "framer-motion";
-import FadeInView from '../containers/FadeInView';
-import imgCache from '../imgCache';
+import { lazy, useState } from 'react'
+import { motion } from 'framer-motion'
+import FadeInView from '../containers/FadeInView'
+import imgCache from '../imgCache'
 import {projects} from '../projectData'
 
 const Navbar = lazy(() => import('../components/Navbar'));
 
 const MotionBox = motion(Box);
+const MotionText = motion(Text);
 
 const variants = {
     offSize: { 'max-width': 'var(--chakra-sizes-2xs)' },
-    onSize: { 'max-width': 'var(--chakra-sizes-xl)' },
+    onSize: { 'max-width': 'var(--chakra-sizes-md)' },
     offHidden: { opacity: 0, display: 'none' },
-    onHidden: { opacity: 1, display: 'inline' },
+    onHidden: { opacity: 1, display: 'block' },
 }
 const transType = { type: 'spring', bounce: 0.25, stiffness: 50 };
 
@@ -36,7 +37,7 @@ function ProjectCard(props) {
                 bgColor='#E4E4DD'
                 overflow='hidden'  
                 onClick={() => setClicked(!clicked)}
-                animate={clicked ? "offSize" : "onSize" }
+                animate={clicked ? 'offSize' : 'onSize' }
                 variants={variants}
                 transition={transType}
             >
@@ -48,13 +49,23 @@ function ProjectCard(props) {
                     <Image
                         src={process.env.PUBLIC_URL+'/img/project/'+props.img}
                         pointerEvents='none'
-                        maxW={{base: 'md', lg: 'lg'}}
+                        
                         boxSize='full'
                         shadow='base'
                         borderRadius='lg'
                         m={2}
                     />
                 </Center>
+                <MotionText 
+                    m='5px 0 10px 10px' 
+                    variant='sm' 
+                    fontSize={{base: 'lg', lg: 'xl'}}
+                    animate={clicked ? 'offHidden' : 'onHidden' }
+                    variants={variants}
+                    transition={transType}
+                >
+                    {props.desc}
+                </MotionText>
             </MotionBox>
         </FadeInView>
     );
@@ -82,7 +93,7 @@ function Project() {
                             <Heading textAlign='center' fontSize='6xl' variant='light'>
                                 Personal Projects
                             </Heading>
-                            <Heading textAlign="center" fontSize="3xl" variant="light-sm">
+                            <Heading textAlign='center' fontSize='3xl' variant='light-sm'>
                                 Collection dating back to 2018 :)
                             </Heading>
                         </FadeInView>
