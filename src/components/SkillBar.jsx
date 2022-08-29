@@ -1,5 +1,5 @@
 import { Box, Text, Flex } from '@chakra-ui/react'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useInView } from 'react-intersection-observer';
 import { motion, useAnimation } from 'framer-motion';
 
@@ -55,27 +55,25 @@ function SkillBar({ percent, children }) {
     const control = useAnimation();
     const [ref, inView] = useInView();
 
-    const [bgColor, setColor] = useState(null);
-    const [title, setTitle] = useState(null);
-
     useEffect(() => {
         if (inView) {
-            control.start({'--animate-width': 1});
+            control.start({ 
+                '--animate-width': 1,
+                'background-color': interpolateColor(percent).getHexCode() 
+            });
         }
-    }, [control, inView]);
+    }, [control, inView, percent]);
 
-    useEffect(() => {
-        setColor( interpolateColor(percent).getHexCode() );
-        if(percent <= 0.4) {
-            setTitle('Beginner');
-        } else if(percent <= 0.6) {
-            setTitle('Intermediate');
-        } else if(percent <= 0.8) {
-            setTitle('Advanced');
-        } else {
-            setTitle('Perfected');
-        }
-    }, [percent]);
+    var title;
+    if(percent <= 0.4) {
+        title = 'Beginner';
+    } else if(percent <= 0.6) {
+        title = 'Intermediate';
+    } else if(percent <= 0.8) {
+        title = 'Advanced';
+    } else {
+        title = 'Perfected';
+    }
 
     return (
         <Flex alignItems='center'>
@@ -84,11 +82,11 @@ function SkillBar({ percent, children }) {
                     ref={ref}
                     animate={control}
                     transition={{ duration: 2, ease: 'easeOut' }}
-                    initial={{'--animate-width': 0}}
+                    initial={{'--animate-width': 0, 'background-color': start.getHexCode()}}
                     h='100%' 
                     w={'calc(100%*'+percent+'*var(--animate-width))'} 
                     borderRadius='xl' 
-                    bg={bgColor}>
+                >
                     <Text position='relative' top='3px' left='10px' fontSize={{base:'lg', md:'xl'}} whiteSpace='nowrap' variant='light-sm'> {title} </Text>
                 </MotionBox>
             </Box>
