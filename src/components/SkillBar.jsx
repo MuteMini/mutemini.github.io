@@ -1,7 +1,7 @@
-import { Box, Text, Flex } from "@chakra-ui/react"
-import { useEffect, useState } from "react"
-import { useInView } from "react-intersection-observer";
-import { motion, useAnimation } from "framer-motion";
+import { Box, Text, Flex } from '@chakra-ui/react'
+import { useEffect, useState } from 'react'
+import { useInView } from 'react-intersection-observer';
+import { motion, useAnimation } from 'framer-motion';
 
 const MotionBox = motion(Box);
 
@@ -14,16 +14,16 @@ class Color {
     }
 
     getHexCode() {
-        return "#"
+        return '#'
             +('00'+this.red.toString(16).toUpperCase()).slice(-2)
             +('00'+this.green.toString(16).toUpperCase()).slice(-2)
             +('00'+this.blue.toString(16).toUpperCase()).slice(-2);
     }
 }
 
-const start = new Color({hexCode:"#12c2e9"});
-const mid = new Color({hexCode:"#c471ed"});
-const end = new Color({hexCode:"#f64f59"});
+const start = new Color({hexCode:'#12c2e9'});
+const mid = new Color({hexCode:'#c471ed'});
+const end = new Color({hexCode:'#f64f59'});
 
 console.log(start.getHexCode())
 
@@ -60,36 +60,36 @@ function SkillBar({ percent, children }) {
 
     useEffect(() => {
         if (inView) {
-            control.start({"--animate-width": 1});
+            control.start({'--animate-width': 1});
         }
     }, [control, inView]);
 
     useEffect(() => {
         setColor( interpolateColor(percent).getHexCode() );
         if(percent <= 0.4) {
-            setTitle("Beginner");
+            setTitle('Beginner');
         } else if(percent <= 0.6) {
-            setTitle("Intermediate");
+            setTitle('Intermediate');
         } else if(percent <= 0.8) {
-            setTitle("Advanced");
+            setTitle('Advanced');
         } else {
-            setTitle("Perfected");
+            setTitle('Perfected');
         }
     }, [percent]);
 
     return (
-        <Flex alignItems="center">
-            <Box h="35px" w={{base: "250px", sm: "300px", md: "500px"}} borderRadius="xl" bg="gray.400">
+        <Flex alignItems='center'>
+            <Box h='35px' w={{base: '250px', sm: '300px', md: '500px'}} borderRadius='xl' bg='gray.400'>
                 <MotionBox 
                     ref={ref}
                     animate={control}
-                    transition={{ duration: 2, ease: "easeOut" }}
-                    initial={{"--animate-width": 0}}
-                    h="100%" 
-                    w={"calc(100%*"+percent+"*var(--animate-width))"} 
-                    borderRadius="xl" 
+                    transition={{ duration: 2, ease: 'easeOut' }}
+                    initial={{'--animate-width': 0}}
+                    h='100%' 
+                    w={'calc(100%*'+percent+'*var(--animate-width))'} 
+                    borderRadius='xl' 
                     bg={bgColor}>
-                    <Text position="relative" top="3px" left="10px" fontSize={{base:"lg", md:"xl"}} whiteSpace="nowrap" variant="light-sm"> {title} </Text>
+                    <Text position='relative' top='3px' left='10px' fontSize={{base:'lg', md:'xl'}} whiteSpace='nowrap' variant='light-sm'> {title} </Text>
                 </MotionBox>
             </Box>
             {children}

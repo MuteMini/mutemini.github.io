@@ -1,6 +1,6 @@
-import { motion, useAnimation } from "framer-motion"
-import { useEffect } from "react"
-import { useInView } from "react-intersection-observer"
+import { motion, useAnimation } from 'framer-motion'
+import { useEffect } from 'react'
+import { useInView } from 'react-intersection-observer'
 
 function FadeInView({ children, duration, distance }) {
     const control = useAnimation();
@@ -8,7 +8,7 @@ function FadeInView({ children, duration, distance }) {
 
     useEffect(() => {
         if (inView) {
-            control.start("visible");
+            control.start('visible');
         }
     }, [control, inView]);
 
@@ -17,8 +17,8 @@ function FadeInView({ children, duration, distance }) {
             style={{ zIndex: 0 }}
             ref={ref}
             animate={control}
-            initial={"hidden"}
-            transition={{duration: duration, ease: "easeInOut"}}
+            initial={'hidden'}
+            transition={{duration: duration, ease: 'easeInOut'}}
             variants={{
                 visible: { opacity: 1, y: 0 },
                 hidden: { opacity: 0, y: distance }
@@ -29,7 +29,7 @@ function FadeInView({ children, duration, distance }) {
     );
 }
 FadeInView.defaultProps = {
-    distance: "100px"
+    distance: '100px'
 };
 
 export default FadeInView;

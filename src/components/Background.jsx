@@ -1,5 +1,5 @@
 import { PerspectiveCamera } from '@react-three/drei';
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame } from '@react-three/fiber';
 import React, { useCallback, useMemo, useRef } from 'react';
 import * as THREE from 'three';
 
@@ -16,7 +16,7 @@ function Particles({ pointCount }) {
   const mesh = useRef();
   const camera = useRef();
   const { vec, transform, positions, colors } = useMemo(() => {
-    const COLOR_TYPES = ["708C43","6E823E","6C7738","6A6D33","68622E","665828","644D23"];
+    const COLOR_TYPES = ['708C43','6E823E','6C7738','6A6D33','68622E','665828','644D23'];
     
     const vec = new THREE.Vector3()
     const transform = new THREE.Matrix4()
@@ -32,7 +32,7 @@ function Particles({ pointCount }) {
     })
 
     const colors = [...Array(pointCount)].map(() => {
-      return new THREE.Color("#"+COLOR_TYPES[Math.floor(Math.random()*COLOR_TYPES.length)])
+      return new THREE.Color('#'+COLOR_TYPES[Math.floor(Math.random()*COLOR_TYPES.length)])
     })
 
     return { vec, transform, positions, colors }

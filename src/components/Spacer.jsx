@@ -1,6 +1,6 @@
-import React from "react"
-import styled from "@emotion/styled"
-import { motion } from "framer-motion"
+import React from 'react'
+import styled from '@emotion/styled'
+import { motion } from 'framer-motion'
 
 const StyledSvg = styled.svg`
    fill: var(--chakra-colors-palette-500);
@@ -15,13 +15,13 @@ const StyledSvg = styled.svg`
 
 const Spacer = ({ width, controls }) => (
    <StyledSvg
-      viewBox="0 0 720 120">
-      <motion.path id="Selection"
-         strokeWidth="3"
-         strokeLinecap="round"
+      viewBox='0 0 720 120'>
+      <motion.path id='Selection'
+         strokeWidth='3'
+         strokeLinecap='round'
          initial={{ pathLength: 0, fillOpacity: 0 }}
          animate={controls}
-         d="M 31.00,10.47
+         d='M 31.00,10.47
             C 35.30,9.88 40.17,9.34 40.84,15.02
                41.01,16.53 40.78,18.45 39.98,19.78
                38.36,22.45 35.45,22.67 33.27,24.56
@@ -79,7 +79,7 @@ const Spacer = ({ width, controls }) => (
                92.00,73.00 70.00,72.00 70.00,72.00
                53.48,71.80 29.99,66.53 19.39,53.00
                11.83,43.36 14.32,22.34 23.11,14.22
-               25.75,11.79 27.67,11.29 31.00,10.47 Z" />
+               25.75,11.79 27.67,11.29 31.00,10.47 Z' />
    </StyledSvg>
 );
 
