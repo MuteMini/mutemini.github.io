@@ -15,8 +15,9 @@ export const theme = extendTheme({
     components: {
         Heading: {
             baseStyle: {
-                fontFamily: "Balsamiq Sans",
-                fontWeight: "300",
+                fontFamily: "'Balsamiq Sans', cursive",
+                fontWeight: "400",
+                fontStyle: "italic",
                 "-webkit-text-stroke": {
                     base: "2px var(--chakra-colors-palette-900)",
                     md: "3px var(--chakra-colors-palette-900)"

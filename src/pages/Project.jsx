@@ -71,7 +71,7 @@ function ProjectCard(props) {
             </MotionBox>
             <Portal containerRef={ref}>
                 <Center m={3}>
-                    <Tooltip hasArrow label='Go to project link' bg='palette.400' color='white'>
+                    <Tooltip hasArrow label='Go to project link' bg='palette.400'>
                         <Link href={props.link} isExternal>
                             <LinkIcon
                                 pointerEvents='visible'
