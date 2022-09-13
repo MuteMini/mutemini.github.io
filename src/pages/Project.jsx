@@ -1,4 +1,4 @@
-import { LinkIcon } from '@chakra-ui/icons'
+import { ExternalLinkIcon } from '@chakra-ui/icons'
 import {
     Box, Center, Container, Flex, Heading, Image, Link, Portal, Tag, Text, Tooltip, Wrap, WrapItem
 } from '@chakra-ui/react'
@@ -86,7 +86,7 @@ function ProjectCard(props) {
                 <Center m={3}>
                     <Tooltip hasArrow label='Go to project link' bg='palette.400'>
                         <Link href={props.link} isExternal>
-                            <LinkIcon
+                            <ExternalLinkIcon
                                 pointerEvents='visible'
                                 boxSize={10} 
                                 _hover={{'color':'palette.900'}}
@@ -135,7 +135,7 @@ function Project() {
                             <ProjectCard {...proj} />
                         </WrapItem>
                     ))}  
-                </Wrap >    
+                </Wrap>    
             </Center>
         </>
     );
