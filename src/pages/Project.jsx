@@ -1,6 +1,6 @@
 import { LinkIcon } from '@chakra-ui/icons'
 import {
-    Box, Center, Container, Flex, Heading, Image, Link, Portal, Text, Tooltip, Wrap, WrapItem
+    Box, Center, Container, Flex, Heading, Image, Link, Portal, Tag, Text, Tooltip, Wrap, WrapItem
 } from '@chakra-ui/react'
 import '@fontsource/balsamiq-sans/400-italic.css'
 import '@fontsource/poppins/400.css'
@@ -22,6 +22,13 @@ const variants = {
     onHidden: { opacity: 1, display: 'block' },
 }
 const transType = { type: 'spring', bounce: 0.25, stiffness: 50 };
+const tagColor = { 'school': 'gray', 
+                'hackathon': 'red', 
+                'java': 'orange', 
+                'python': 'blue', 
+                'html': 'pink',
+                'game dev': 'purple',
+                'node.js': 'green', } 
 
 function ProjectCard(props) {
     const ref = useRef();
@@ -64,6 +71,12 @@ function ProjectCard(props) {
                     transition={transType}
                     ref={ref}
                 >
+                    {props.tags.map((tName) => (
+                        <Tag ml={3} borderRadius='full' colorScheme={tagColor[tName]}>
+                            <Text variant='sm'> {tName} </Text>
+                        </Tag>
+                    ))}
+                    <br/>
                     <Text m='5px 0 10px 10px' variant='sm' fontSize={{base: 'lg', lg: 'xl'}}>
                         {props.desc}
                     </Text>
