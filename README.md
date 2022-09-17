@@ -1,9 +1,6 @@
-In the project directory, you can run:
+### New and Fresh porfolio website!
 
-### `yarn start`
+Welcome to my second version of my website! This has been in almost a year of on-and-off development. I used a variety of tools to make everything work and flow. I'm not much of a designer myself but I tried my best to make the website look even a little visually interesting.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Tools used
+React, Framer-motion, THREE.js, chakra-ui, gh-pages, fontsource (Balsamiq-sans and Poppins).
