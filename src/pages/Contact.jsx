@@ -37,7 +37,7 @@ function Contact() {
                     {[ [SiLinkedin, 'https://www.linkedin.com/in/min-kang-2a7809244/'], 
                        [SiGithub, 'https://github.com/MuteMini'],
                        [MdEmail, 'mailto:therealminhere@gmail.com'],
-                       [HiDocumentText, '']
+                       [HiDocumentText, '/resume.pdf']
                      ].map((links) => (
                             <Link m={5} href={links[1]} isExternal>
                                 <Icon 
