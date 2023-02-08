@@ -127,7 +127,7 @@ function About() {
                 </FadeInView>
                 <FadeInView duration={1} distance='30px'>
                     <InnerText>
-                        <Text fontSize={{base: '3xl', lg: '5xl'}}> Skillz </Text>
+                        <Text fontSize={{base: '3xl', lg: '5xl'}}> Skills </Text>
                         <Divider />
                     </InnerText>
                     {skillInfo.map((skill, sid) => (
