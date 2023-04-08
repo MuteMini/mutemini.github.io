@@ -47,4 +47,4 @@ export const projects = [
         tags: ['hackathon', 'node.js'],
         desc: 'Created for HtN 2021. Learnt power of modern web app languages.', 
         link: 'https://devpost.com/software/handpong' },
-];
+].reverse();

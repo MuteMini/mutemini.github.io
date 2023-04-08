@@ -130,7 +130,7 @@ function Project() {
             </Flex>
             <Center h='100%' overflow='hidden'>
                 <Wrap m={5} spacing='30px' justify='center'>
-                    {projects.reverse().map((proj) => (
+                    {projects.map((proj) => (
                         <WrapItem>
                             <ProjectCard {...proj} />
                         </WrapItem>
